@@ -28,15 +28,42 @@ $govuk-global-styles: true;
 // @param {Color} $color - color to shade
 // @return {Color}
 @function shade-25($color) {
-  @return mix(#000000, $color, 25%);
+  @return mix(#0b0c0c, $color, 25%);
 }
 @function shade-50($color) {
-  @return mix(#000000, $color, 50%);
+  @return mix(#0b0c0c, $color, 50%);
 }
 
 /*--- CUSTOM STYLES ----------------------------------------------------------*/
 
+// SHARED STYLES
+// -------------
+
+// Forms as standard (for easier prototyping and session stuff)
+
+button.button-as-link {
+
+   background: none !important;
+   color: $govuk-link-colour;
+   border: none;
+   padding: 0 !important;
+   font: inherit;
+   cursor: pointer;
+   text-decoration: underline;
+
+   &:hover { color: $govuk-link-hover-colour; }
+   &:active { color: $govuk-link-active-colour; }
+   &:visited { color: $govuk-link-visited-colour; }
+   &:disabled {
+     color: govuk-colour("grey-2");
+     pointer-events: none;
+     cursor: default;
+   }
+
+}
+
 // Main page header
+
 header.govuk-header {
 
   .govuk-header__container {
@@ -48,6 +75,7 @@ header.govuk-header {
 }
 
 // Masthead
+
 .page-masthead {
 
   margin-top: govuk-px-to-rem(-10);
@@ -70,5 +98,30 @@ header.govuk-header {
   }
 
   p.govuk-body-l { margin-bottom: govuk-px-to-rem(32); }
+
+}
+
+// PAGE SPECIFIC
+// -------------
+
+// Landing page
+
+.app-assessment-picker {
+
+  margin-bottom: govuk-px-to-rem(32);
+  background-color: tint-50(govuk-colour("grey-3"));
+  border-bottom: govuk-px-to-rem(2) solid $govuk-border-colour;
+
+  h2 {
+    margin-bottom: 0;
+    padding: govuk-px-to-rem(16);
+    background-color: govuk-colour("blue");
+    color: govuk-colour("white");
+  }
+
+  .picker-content {
+    padding: govuk-px-to-rem(16);
+    padding-top: 0;
+  }
 
 }
