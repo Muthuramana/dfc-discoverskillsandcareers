@@ -120,6 +120,20 @@ header.govuk-header {
 
 }
 
+// Footer
+
+.govuk-footer__meta-custom {
+
+  .footer-notes {
+    color: shade-25(govuk-colour("grey-2"));
+    a {
+      color: inherit;
+      &:hover { color: shade-50(govuk-colour("grey-2")); }
+    }
+  }
+
+}
+
 // PAGE SPECIFIC
 // -------------
 
