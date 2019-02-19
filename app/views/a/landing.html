@@ -1,0 +1,80 @@
+{% extends "layout-masthead.html" %}
+
+{% set mastHeadTitle = "Discover your skills and careers" %}
+{% set mastHeadIntro = "Take a quick assessment to see job categories you might be suited to. Or take a longer assessment to see specific job roles." %}
+
+{% block pageTitle %} Start | National Careers Service {% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="app-assessment-picker">
+        <div class="app-assessment-picker__title">
+          <h2 class="govuk-heading-l">See job categories</h2>
+        </div>
+        <div class="app-assessment-picker__body">
+          <div class="govuk-inset-text">
+            5 minutes
+          </div>
+          <a href="/start.html" class="govuk-body govuk-!-font-size-19 govuk-link govuk-link--no-visited-state" gov-analytics-data="home | click | button | Start assessment">Start assessment</a>
+        </div>
+      </div>
+
+      <div class="app-assessment-picker app-assessment-picker--inactive" aria-disabled="true">
+        <div class="app-assessment-picker__title">
+          <strong class="govuk-tag govuk-tag--coming-soon">Coming soon</strong>
+          <h2 class="govuk-heading-l">See specific job roles</h2>
+        </div>
+        <div class="app-assessment-picker__body">
+          <div class="govuk-inset-text">
+            10 to 15 minutes
+          </div>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-l">Eligibility</h2>
+      <p class="govuk-body">You can apply if you have received an email from the Department of Education saying you are eligible.</p>
+      <p class="govuk-body">You should be in years 1 to 5 of your teaching career and have achieved qualified status in or after 2013.</p>
+      <p class="govuk-body">You must have taught one of the following priority subjects for at least 50% of your contracted hours for the year you are claiming:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>languages (excluding English)</li>
+        <li>physics</li>
+        <li>chemistry</li>
+        <li>biology</li>
+        <li>computer science</li>
+      </ul>
+      <p class="govuk-body">
+        <a href="teacher-verify-options" role="button" draggable="false" class="govuk-button govuk-button--start">Start now</a>
+      </p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="app-sidebar app-resume-panel">
+        <h3 class="govuk-heading-m">Resume your progress</h3>
+        <form method="post" action="https://dfc-DEV-skillscareers-fa.azurewebsites.net/reload">
+          <div class="app-resume-panel__input govuk-form-group">
+            <label class="govuk-label" for="code">Reference number</label>
+            <input class="govuk-input" id="code" name="code" type="text">
+          </div>
+          <button type="submit" class="govuk-button app-button" gov-analytics-data="home | click | button | Resume progress">
+            Resume progress
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

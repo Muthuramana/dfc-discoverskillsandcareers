@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">NCS Prototypes</h1>
+    </div>
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Latest and archived prototypes</h2>
+      <table class="govuk-table cols-2">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header col-1" scope="col">Service Model A<br/>
+              <span class="sub-heading">Initial journey outline</span></th>
+            <th class="govuk-table__header col-2" scope="col">Service Model B<br/>
+              <span class="sub-heading">For future</span></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" valign="top">
+              <a href="/a/landing" class="govuk-link">A Latest</a>
+            </td>
+            <td class="govuk-table__cell" valign="top">
+              TBC
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" valign="top">
+              <dl class="release-desc">
+                <dt><a href="/a/181018/admin-start-email" class="govuk-link">A 181018</a></dt>
+                <dd>Archived version before integrating Verify prototype</dd>
+              </dl>
+            </td>
+            <td class="govuk-table__cell" valign="top">&nbsp;</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" valign="top">&nbsp;</td>
+            <td class="govuk-table__cell" valign="top">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+      <h2 class="govuk-heading-l">About</h2>
+      <p class="govuk-body">These prototypes remain in iteration during the Beta phase of the NCS project. The <strong>Latest</strong> version should always be stable and should be used in most scenarios, though regular date-versioned snapshots are archived for progress tracking and retrospective comparison.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+      <h2 class="govuk-heading-l">Resources</h2>
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="/kit/index">Original Prototype Kit index page</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import "lib/extensions/extensions";
+
+// Patterns that aren't in Frontend
+@import "patterns/step-by-step-navigation";
+@import "patterns/task-list";
+@import "patterns/related-items";
+
+// Components that aren't in Frontend
+@import "components/cookie-banner";
+
+/*--- FUNCTIONS --------------------------------------------------------------*/
+
+// Lighten a color
+// @param {Color} $color - color to tint
+// @return {Color}
+@function tint-25($color) {
+  @return mix(#ffffff, $color, 25%);
+}
+@function tint-50($color) {
+  @return mix(#ffffff, $color, 50%);
+}
+
+// Darken a color
+// @param {Color} $color - color to shade
+// @return {Color}
+@function shade-25($color) {
+  @return mix(#000000, $color, 25%);
+}
+@function shade-50($color) {
+  @return mix(#000000, $color, 50%);
+}
+
+/*--- CUSTOM STYLES ----------------------------------------------------------*/
+
+// Main page header
+header.govuk-header {
+
+  .govuk-header__container {
+    &.layout-masthead {
+      border-color: govuk-colour("white");
+    }
+  }
+
+}
+
+// Masthead
+.page-masthead {
+
+  margin-top: govuk-px-to-rem(-10);
+  padding-top: govuk-px-to-rem(10);
+  padding-bottom: govuk-px-to-rem(32);
+  background-color: shade-25(govuk-colour("turquoise"));
+
+  .govuk-phase-banner p,
+  .govuk-breadcrumbs ol li,
+  h1, p, a { color: govuk-colour("white"); }
+
+  a.govuk-link {
+    color: govuk-colour("white");
+    &:hover { color: govuk-colour("black"); }
+  }
+
+  h1 {
+    margin-top: govuk-px-to-rem(32);
+    margin-bottom: govuk-px-to-rem(16);
+  }
+
+  p.govuk-body-l { margin-bottom: govuk-px-to-rem(32); }
+
+}
