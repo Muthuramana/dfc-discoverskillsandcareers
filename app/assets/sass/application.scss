@@ -101,12 +101,31 @@ header.govuk-header {
 
 }
 
+// Sidebar
+
+.sidebar {
+
+  margin-bottom: govuk-px-to-rem(16);
+  border-top: govuk-px-to-rem(8) solid shade-25(govuk-colour("turquoise"));
+  padding-top: govuk-px-to-rem(16);
+
+  &.resume-panel {
+    .govuk-form-group {
+      margin-bottom: govuk-px-to-rem(16);
+    }
+  }
+
+  &.get-help-panel {
+  }
+
+}
+
 // PAGE SPECIFIC
 // -------------
 
 // Landing page
 
-.app-assessment-picker {
+.assessment-picker-panel {
 
   margin-bottom: govuk-px-to-rem(32);
   background-color: tint-50(govuk-colour("grey-3"));

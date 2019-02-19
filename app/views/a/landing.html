@@ -21,7 +21,7 @@
 
       <div class="govuk-grid-column-two-thirds">
 
-        <div class="app-assessment-picker">
+        <div class="assessment-picker-panel">
           <h2 class="govuk-heading-l">See job categories</h2>
           <div class="picker-content">
             <div class="govuk-inset-text">
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <div class="app-assessment-picker">
+        <div class="assessment-picker-panel">
           <h2 class="govuk-heading-l">See specific job roles</h2>
           <div class="picker-content">
             <div class="govuk-inset-text">
@@ -48,16 +48,22 @@
       </div>
 
       <div class="govuk-grid-column-one-third">
-        <div class="app-sidebar app-resume-panel">
-          <h3 class="govuk-heading-m">Resume your progress</h3>
-            <div class="app-resume-panel__input govuk-form-group">
-              <label class="govuk-label" for="code">Reference number</label>
-              <input class="govuk-input" id="code" name="code" type="text">
-            </div>
-            <button type="submit" class="govuk-button app-button" gov-analytics-data="home | click | button | Resume progress">
-              Resume progress
-            </button>
+
+        <div class="sidebar resume-panel">
+          <h3 class="govuk-heading-m">Return to an asessment</h3>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="reference-number">Enter your reference number</label>
+            <input class="govuk-input" id="reference-number" name="reference-number" type="text">
+          </div>
+          <button type="submit" class="govuk-button">Resume progress</button>
         </div>
+
+        <div class="sidebar get-help-panel">
+          <h3 class="govuk-heading-m">Get help from an adviser</h3>
+          <p class="govuk-body">Call 0800 100 900 or <a href="#">use webchat</a></p>
+          <p class="govuk-body-s">8am to 10pm, 7 days a week</p>
+        </div>
+
       </div>
 
     </div>
