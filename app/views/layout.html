@@ -34,17 +34,26 @@
   GOV.UK Prototype Kit
 {% endblock %}
 
-<div class="govuk-width-container">Standard layout</div>
-
 {% block header %}
+
   {% include "includes/cookie-banner.html" %}
-  {# Set serviceName in config.js. #}
+
   {{ govukHeader({
     homepageUrl: "/",
     serviceName: serviceName,
     serviceUrl: "/",
     containerClasses: "layout-standard govuk-width-container"
   }) }}
+
+  <div class="govuk-full-width-container">
+    <div class="govuk-width-container">
+
+      {% include "blocks/phase-banner.html" %}
+
+    </div>
+
+  </div>
+
 {% endblock %}
 
 {% if useAutoStoreData %}

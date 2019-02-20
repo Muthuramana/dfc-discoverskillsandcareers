@@ -1,21 +1,15 @@
 {% extends "layout-masthead.html" %}
 
-{% set mastHeadTitle = "Discover your skills and careers" %}
-{% set mastHeadIntro = "Take a quick assessment to see job categories you might be suited to. Or take a longer assessment to see specific job roles." %}
+{% set thisPage = "landing" %} {# Required. Used for automatically posting back to self #}
+{% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set pageTitle = "Discover your skills and careers" %} {# Required. Used for html title, breadcrumb, in-page title and masthead title #}
+{% set pageIntro = "Take a quick assessment to see job categories you might be suited to. Or take a longer assessment to see specific job roles." %} {# Optional. Used in masthead. #}
 
-{% block pageTitle %} Start | National Careers Service {% endblock %}
-
-{% block head %}
-{{ super() }}
-{% endblock %}
-
-{% block beforeContent %}
-
-{% endblock %}
+{% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
 
 {% block content %}
 
-  <form action="teacher-enter-location" method="POST" role="form">
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form">
 
     <div class="govuk-grid-row">
 
