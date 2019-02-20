@@ -85,7 +85,12 @@ header.govuk-header {
 
   .govuk-phase-banner p,
   .govuk-breadcrumbs ol li,
+  .govuk-breadcrumbs ol li a,
   h1, p, a { color: govuk-colour("white"); }
+
+  .govuk-breadcrumbs__list-item::before {
+    border-color: govuk-colour("white");
+  }
 
   a.govuk-link {
     color: govuk-colour("white");
@@ -98,6 +103,16 @@ header.govuk-header {
   }
 
   p.govuk-body-l { margin-bottom: govuk-px-to-rem(32); }
+
+}
+
+// Masthead intro
+
+.results-intro-panel {
+
+  @include govuk-responsive-padding(6, "top");
+  @include govuk-responsive-padding(6, "bottom");
+  background-color: tint-50(govuk-colour("grey-3"));
 
 }
 
@@ -166,5 +181,36 @@ header.govuk-header {
     padding: govuk-px-to-rem(16);
     padding-top: 0;
   }
+
+}
+
+// Assessment results
+
+ul.assessment-results {
+
+  padding-left: 0;
+  list-style: none;
+
+  li {
+
+    padding-bottom: govuk-px-to-rem(32);
+
+    h3 {
+      margin-bottom: 0;
+      padding: govuk-px-to-rem(16);
+      background-color: govuk-colour("grey-3");
+    }
+
+    .result-content {
+
+      padding: govuk-px-to-rem(16);
+      background-color: tint-50(govuk-colour("grey-3"));
+
+      .govuk-button { margin-bottom: 0; }
+
+    }
+
+  }
+
 
 }

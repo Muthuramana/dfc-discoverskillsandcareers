@@ -45,32 +45,6 @@
     containerClasses: "layout-masthead govuk-width-container"
   }) }}
 
-  <div class="page-masthead govuk-full-width-container">
-    <div class="govuk-width-container">
-
-      {% include "blocks/phase-banner.html" %}
-
-      {{ govukBreadcrumbs({
-        items: [
-          {
-            text: "Discover your skills and careers"
-          }
-        ]
-      }) }}
-
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <h1 class="govuk-heading-xl">{{ pageTitle or "Discover your skills and careers" }}</h1>
-        </div>
-        <div class="govuk-grid-column-two-thirds">
-          <p class="govuk-body-l">{{ pageIntro or "Take a quick assessment to see job categories you might be suited to. Or take a longer assessment to see specific job roles." }}</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
 {% endblock %}
 
 {% if useAutoStoreData %}
