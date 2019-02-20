@@ -2,7 +2,7 @@
 
 {% set thisPage = "start" %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
-{% set pageTitle = "Job categories" %} {# Required. Used for html title, breadcrumb, in-page title and masthead title #}
+{% set pageTitle = "See job categories" %} {# Required. Used for html title, breadcrumb, in-page title and masthead title #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
 
@@ -26,13 +26,28 @@
       <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
-        <p class="govuk-body-l">Answer statements about what you enjoy, and discover job categories tailored to you</p>
-        <p class="govuk-inset-text">This assessment will take 5 minutes</p>
-        <p class="govuk-body">On the following screens, we will ask you to agree or disagree with statements about yourself.</p>
-        <p class="govuk-body">We’ll use your answers to suggest types of work you might be suited to.</p>
-        <p class="govuk-body">Some of the statements are very similar. This is to help us make sure your results are more reliable. Try to answer quickly, even if you think you’ve seen a statement before.</p>
-        <p class="govuk-body">You will get more accurate results if you answer honestly and respond to every statement. But you can use the option called ‘this doesn’t apply to me’ if you are finding it hard to respond to a particular statement.</p>
+
+        <h2 class="govuk-heading-m">About this assessment</h2>
+        <p class="govuk-body">This assessment asks you to agree or disagree with statements about yourself.</p>
+        <p class="govuk-body">We’ll use your answers to suggest types of jobs you might be suited to.</p>
+
+        <h2 class="govuk-heading-m">How long will it take</h2>
+        <p class="govuk-body">There are 40 questions.</p>
+        <p class="govuk-body">The assessment will take 5 minutes to complete.</p>
+        <p class="govuk-body">You can save your assessment to complete it or look at your results again another time.</p>
+
+        <h2 class="govuk-heading-m">How to respond</h2>
+        <p class="govuk-body">A lot of the statements are about how you are at work. If you have not had a job yet, think how you are with your friends and family.</p>
+        <p class="govuk-body">Some of the statements are very similar. Try to answer honestly, even if you think you’ve see a statement before.</p>
+        <p class="govuk-body">You will get more accurate results if you respond to every statement. But if you cannot respond, you can choose ‘This does not apply to me’.</p>
+
         <button type="submit" class="govuk-button govuk-button--start">Start now</button>
+
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+        {% include "blocks/sidebar-get-help.html" %}
 
       </div>
 
