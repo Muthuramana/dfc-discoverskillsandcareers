@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 
 {% set qNum = data['question-num'] | int %}
-{% set thisPage = "assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
+{% set thisPage = "short-assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set breadcrumbTitle = "See job categories" %} {# Required. Used for this page breadcrumb #}
 {% set pageTitle = "See job categories" %} {# Required. Used for html title, breadcrumb, in-page title and masthead title #}
 {% set questionData = data['assessment-data']['questions'][qNum - 1] %} {# Required. Used for question content #}
 
@@ -13,7 +14,7 @@
   {{ govukBreadcrumbs({
     items: [
       { text: "Discover your skills and careers", href: "landing" },
-      { text: pageTitle }
+      { text: breadcrumbTitle }
     ]
   }) }}
 

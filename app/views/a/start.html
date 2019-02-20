@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 
 {% set thisPage = "start" %} {# Required. Used for automatically posting back to self #}
-{% set nextPage = "assessment-q1" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set nextPage = "short-assessment-q1" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set breadcrumbTitle = "See job categories" %} {# Required. Used for this page breadcrumb #}
 {% set pageTitle = "See job categories" %} {# Required. Used for html title, breadcrumb, in-page title and masthead title #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
@@ -11,7 +12,7 @@
   {{ govukBreadcrumbs({
     items: [
       { text: "Discover your skills and careers", href: "landing" },
-      { text: pageTitle }
+      { text: breadcrumbTitle }
     ]
   }) }}
 

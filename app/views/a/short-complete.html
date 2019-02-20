@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set thisPage = "short-complete" %} {# Required. Used for automatically posting back to self #}
+{% set nextPage = "short-results" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set breadcrumbTitle = "See job categories" %} {# Required. Used for this page breadcrumb #}
+{% set pageTitle = "That's it, you've finished" %} {# Required. Used for html title and in-page title or masthead title #}
+
+{% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      { text: "Discover your skills and careers", href: "landing" },
+      { text: pageTitle }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
+          {% include "blocks/assessment-progress-status.html" %}
+          <h1 class="govuk-panel__title">{{ pageTitle }}</h1>
+        </div>
+
+        <h2 class="govuk-heading-m">What to do next</h2>
+        <p class="govuk-body">On the next page you will see your results, which are based on the statements you have just responded to.</p>
+
+        <button type="submit" class="govuk-button">View results</button>
+
+      </div>
+
+    </div>
+
+  </form>
+
+{% endblock %}

@@ -29,10 +29,10 @@ router.get("/a", function (req, res) {
 })
 
 // One question route to rule them all!
-router.post(/([a])\/(assessment-q[0-9]*)/, function (req, res) {
+router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
   var qUrl = req.params[1];
-  var qNum = Number(qUrl.substr(12));
+  var qNum = Number(qUrl.substr(18));
 
   // Load the JSON data if not already in session
   if (!req.session.data['assessment-data']) {
@@ -44,6 +44,8 @@ router.post(/([a])\/(assessment-q[0-9]*)/, function (req, res) {
 
   // Setup the assessment data
   var assessmentData = req.session.data['assessment-data'];
+  var numQuestions = assessmentData['questions'].length;
+  req.session.data['num-questions'] = numQuestions;
 
   if (req.session.data['start-assessment']) {
 
@@ -61,12 +63,28 @@ router.post(/([a])\/(assessment-q[0-9]*)/, function (req, res) {
     delete req.session.data['answer'];
     delete req.session.data['error-missing'];
 
-    // Increment the question
-    req.session.data['question-num'] = qNum + 1;
+    if (qNum === numQuestions) {
+
+      var assessmentComplete = true;
+
+    } else {
+
+      // Increment the question
+      req.session.data['question-num'] = qNum + 1;
+
+    }
 
   }
 
-  res.redirect('assessment-q');
+  if (assessmentComplete) {
+
+    res.redirect('short-complete');
+
+  } else {
+
+    res.redirect('short-assessment');
+
+  }
 
 })
 
