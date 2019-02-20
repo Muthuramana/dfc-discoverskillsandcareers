@@ -8,7 +8,7 @@ module.exports = {
   serviceName: 'National Careers Service',
 
   // Default port that prototype runs on
-  port: '3001',
+  port: '3000',
 
   // Enable or disable password protection on production
   useAuth: 'true',
