@@ -109,13 +109,23 @@ header.govuk-header {
   border-top: govuk-px-to-rem(8) solid shade-25(govuk-colour("turquoise"));
   padding-top: govuk-px-to-rem(16);
 
+  .govuk-form-group {
+    margin-bottom: govuk-px-to-rem(16);
+  }
+
   &.resume-panel {
-    .govuk-form-group {
-      margin-bottom: govuk-px-to-rem(16);
-    }
   }
 
   &.get-help-panel {
+  }
+
+  &.save-progress-panel {
+    border-top: none;
+    border-bottom: govuk-px-to-rem(2) solid $govuk-border-colour;
+    padding: govuk-px-to-rem(8);
+    background-color: govuk-colour("grey-4");
+    h3,
+    p.govuk-body { margin-bottom: govuk-px-to-rem(8); }
   }
 
 }

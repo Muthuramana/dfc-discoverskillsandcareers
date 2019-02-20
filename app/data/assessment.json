@@ -1,0 +1,74 @@
+{
+  "questions": [
+    {
+      "question": "I like to give people instructions",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I make decisions quickly",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I like to take control of situations",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I like to follow other people's lead ",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I like having responsibility for other people",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I set myself targets when I've got a task to do",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I prefer a general understanding of a problem to knowing the details",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I enjoy competing against other people",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "Taking part in something is just as important as winning",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I set myself goals in life",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    }
+  ]
+}

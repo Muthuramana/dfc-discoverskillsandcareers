@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set thisPage = "start" %} {# Required. Used for automatically posting back to self #}
-{% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set nextPage = "assessment-q1" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "See job categories" %} {# Required. Used for html title, breadcrumb, in-page title and masthead title #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
@@ -41,6 +41,7 @@
         <p class="govuk-body">Some of the statements are very similar. Try to answer honestly, even if you think you’ve see a statement before.</p>
         <p class="govuk-body">You will get more accurate results if you respond to every statement. But if you cannot respond, you can choose ‘This does not apply to me’.</p>
 
+        <input type="hidden" id="question-num" name="start-assessment" value="1">
         <button type="submit" class="govuk-button govuk-button--start">Start now</button>
 
       </div>
