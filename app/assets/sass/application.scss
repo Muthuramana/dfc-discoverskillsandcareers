@@ -73,6 +73,15 @@ a.back-to-top-link {
   }
 }
 
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 // Main page header
 
 header.govuk-header {
@@ -150,6 +159,7 @@ header.govuk-header {
 // Main panels
 
 .progress-status-panel {
+  @include govuk-responsive-margin(9, "bottom");
 
   .progress-number {
     display: block;
@@ -181,6 +191,10 @@ header.govuk-header {
 
   }
 
+  &.status-100 {
+    .progress-number { color: govuk-colour("white"); }
+    .progress-bar span { background-color: govuk-colour("white"); }
+  }
 
 }
 
@@ -302,6 +316,17 @@ fieldset.app-question {
 
 }
 
+// Assessment complete
+
+.govuk-panel--confirmation {
+  background-color: shade-25(govuk-colour("turquoise"));
+
+  h1.govuk-panel__title {
+    clear: both;
+    margin-top: 20px;
+  }
+
+}
 // Assessment results
 
 ul.assessment-results {

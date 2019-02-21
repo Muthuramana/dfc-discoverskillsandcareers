@@ -8,12 +8,8 @@ const router = express.Router()
 
 // Routes
 // ------
-// Add your routes here - above the module.exports line
 
-
-// All Service Models
-// ------------------
-
+// Prototype home --------------------------------------------------------------
 router.get("/", function (req, res) {
 
   // Unset everything
@@ -22,12 +18,15 @@ router.get("/", function (req, res) {
 
 })
 
+// Version a index -------------------------------------------------------------
+// Catch URL hackers trying to get to restart from /a
 router.get("/a", function (req, res) {
 
   res.redirect("launch");
 
 })
 
+// Assessment / questions ------------------------------------------------------
 // One question route to rule them all!
 router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
@@ -56,7 +55,8 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
   } else if (qNum === numQuestions) {
 
-    decCompleteExact = 1;
+    // decCompleteExact = 1; // Actually, don't ever show 100% during the assessment
+    decCompleteExact = 0.99;
 
   } else if (!req.session.data['answer']) {
 
@@ -68,8 +68,9 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
   }
 
-  decCompleteRounded = Math.round((decCompleteExact) * 10) / 10;
-  percComplete = decCompleteRounded * 100;
+  // decCompleteRounded = Math.round((decCompleteExact) * 10) / 10; // 10% stages method
+  decCompleteRounded = Math.round((decCompleteExact + 0.00001) * 100) / 100;
+  percComplete = Math.round(decCompleteRounded * 100);
 
   req.session.data['assessment-status'] = {
     'exact': decCompleteExact,
@@ -98,6 +99,12 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
       var assessmentComplete = true;
 
+      req.session.data['assessment-status'] = {
+        'exact': 1,
+        'rounded': 1,
+        'percentage': 100
+      }
+
     } else {
 
       // Increment the question
@@ -119,5 +126,9 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
   }
 
 })
+
+// Assessment complete ---------------------------------------------------------
+//router.post(/([a])\/(short-complete)/, function (req, res) {
+//})
 
 module.exports = router
