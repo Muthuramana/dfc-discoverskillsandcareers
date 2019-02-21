@@ -28,15 +28,42 @@ $govuk-global-styles: true;
 // @param {Color} $color - color to shade
 // @return {Color}
 @function shade-25($color) {
-  @return mix(#000000, $color, 25%);
+  @return mix(#0b0c0c, $color, 25%);
 }
 @function shade-50($color) {
-  @return mix(#000000, $color, 50%);
+  @return mix(#0b0c0c, $color, 50%);
 }
 
 /*--- CUSTOM STYLES ----------------------------------------------------------*/
 
+// SHARED STYLES
+// -------------
+
+// Forms as standard (for easier prototyping and session stuff)
+
+button.button-as-link {
+
+   background: none !important;
+   color: $govuk-link-colour;
+   border: none;
+   padding: 0 !important;
+   font: inherit;
+   cursor: pointer;
+   text-decoration: underline;
+
+   &:hover { color: $govuk-link-hover-colour; }
+   &:active { color: $govuk-link-active-colour; }
+   &:visited { color: $govuk-link-visited-colour; }
+   &:disabled {
+     color: govuk-colour("grey-2");
+     pointer-events: none;
+     cursor: default;
+   }
+
+}
+
 // Main page header
+
 header.govuk-header {
 
   .govuk-header__container {
@@ -48,6 +75,7 @@ header.govuk-header {
 }
 
 // Masthead
+
 .page-masthead {
 
   margin-top: govuk-px-to-rem(-10);
@@ -57,7 +85,12 @@ header.govuk-header {
 
   .govuk-phase-banner p,
   .govuk-breadcrumbs ol li,
+  .govuk-breadcrumbs ol li a,
   h1, p, a { color: govuk-colour("white"); }
+
+  .govuk-breadcrumbs__list-item::before {
+    border-color: govuk-colour("white");
+  }
 
   a.govuk-link {
     color: govuk-colour("white");
@@ -70,5 +103,114 @@ header.govuk-header {
   }
 
   p.govuk-body-l { margin-bottom: govuk-px-to-rem(32); }
+
+}
+
+// Masthead intro
+
+.results-intro-panel {
+
+  @include govuk-responsive-padding(6, "top");
+  @include govuk-responsive-padding(6, "bottom");
+  background-color: tint-50(govuk-colour("grey-3"));
+
+}
+
+// Sidebar
+
+.sidebar {
+
+  margin-bottom: govuk-px-to-rem(16);
+  border-top: govuk-px-to-rem(8) solid shade-25(govuk-colour("turquoise"));
+  padding-top: govuk-px-to-rem(16);
+
+  .govuk-form-group {
+    margin-bottom: govuk-px-to-rem(16);
+  }
+
+  &.resume-panel {
+  }
+
+  &.get-help-panel {
+  }
+
+  &.save-progress-panel {
+    border-top: none;
+    border-bottom: govuk-px-to-rem(2) solid $govuk-border-colour;
+    padding: govuk-px-to-rem(8);
+    background-color: tint-50(govuk-colour("grey-3"));
+    h3,
+    p.govuk-body { margin-bottom: govuk-px-to-rem(8); }
+  }
+
+}
+
+// Footer
+
+.govuk-footer__meta-custom {
+
+  .footer-notes {
+    color: shade-25(govuk-colour("grey-2"));
+    a {
+      color: inherit;
+      &:hover { color: shade-50(govuk-colour("grey-2")); }
+    }
+  }
+
+}
+
+// PAGE SPECIFIC
+// -------------
+
+// Landing page
+
+.assessment-picker-panel {
+
+  margin-bottom: govuk-px-to-rem(32);
+  background-color: tint-50(govuk-colour("grey-3"));
+  border-bottom: govuk-px-to-rem(2) solid $govuk-border-colour;
+
+  h2 {
+    margin-bottom: 0;
+    padding: govuk-px-to-rem(16);
+    background-color: govuk-colour("blue");
+    color: govuk-colour("white");
+  }
+
+  .picker-content {
+    padding: govuk-px-to-rem(16);
+    padding-top: 0;
+  }
+
+}
+
+// Assessment results
+
+ul.assessment-results {
+
+  padding-left: 0;
+  list-style: none;
+
+  li {
+
+    padding-bottom: govuk-px-to-rem(32);
+
+    h3 {
+      margin-bottom: 0;
+      padding: govuk-px-to-rem(16);
+      background-color: govuk-colour("grey-3");
+    }
+
+    .result-content {
+
+      padding: govuk-px-to-rem(16);
+      background-color: tint-50(govuk-colour("grey-3"));
+
+      .govuk-button { margin-bottom: 0; }
+
+    }
+
+  }
+
 
 }

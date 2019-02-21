@@ -138,7 +138,7 @@ header.govuk-header {
     border-top: none;
     border-bottom: govuk-px-to-rem(2) solid $govuk-border-colour;
     padding: govuk-px-to-rem(8);
-    background-color: govuk-colour("grey-4");
+    background-color: tint-50(govuk-colour("grey-3"));
     h3,
     p.govuk-body { margin-bottom: govuk-px-to-rem(8); }
   }
