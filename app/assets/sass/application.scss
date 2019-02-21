@@ -337,6 +337,7 @@ fieldset.app-question {
   }
 
 }
+
 // Assessment results
 
 ul.assessment-results {
@@ -365,5 +366,29 @@ ul.assessment-results {
 
   }
 
+}
+
+// Save my progress
+
+.progress-reference-number-panel {
+
+  @include govuk-responsive-margin(7, "bottom");
+  border-left: govuk-px-to-rem(10) solid shade-25(govuk-colour("turquoise"));
+  @include govuk-responsive-padding(5);
+  @include govuk-responsive-padding(3, "top");
+  @include govuk-responsive-padding(3, "bottom");
+  background-color: tint-50(govuk-colour("grey-3"));
+
+  p { margin-bottom: 0; }
+
+  span.govuk-heading-xl {
+    margin-bottom: 0;
+    @include govuk-responsive-padding(2, "top");
+    @include govuk-responsive-padding(2, "bottom");
+  }
+
+  .ref-meta {
+    p { color: govuk-colour("grey-1"); }
+  }
 
 }
