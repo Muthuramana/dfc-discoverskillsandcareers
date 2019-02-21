@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 
-{% set thisPage = "start" %} {# Required. Used for automatically posting back to self #}
-{% set nextPage = "short-assessment-q1" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set qNum = data['question-num'] | int %}
+{% set thisPage = "save-progress" %} {# Required. Used for automatically posting back to self #}
+{% set nextPage = "short-assessment-q" + (qNum - 1) %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "What to do" %} {# Required. Used for html title and in-page title or masthead title #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
@@ -34,6 +35,8 @@
           <li>access your results after finishing the assessment</li>
         </ul>
         <p class="govuk-body">Please write this code down and store it somewhere safe.</p>
+
+        <button type="submit" class="govuk-button" name="answer" value="continue">Continue your assessment</button>
 
       </div>
 

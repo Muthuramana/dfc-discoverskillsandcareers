@@ -131,4 +131,34 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 //router.post(/([a])\/(short-complete)/, function (req, res) {
 //})
 
+// Save progress ---------------------------------------------------------------
+router.post(/([a])\/(save-progress)/, function (req, res) {
+
+  var refDate = new Date();
+
+  var d = new Date();
+
+  // Basic old month lookup. Swap this out for date library in future.
+  var months = new Array();
+  months[0] = "January";
+  months[1] = "February";
+  months[2] = "March";
+  months[3] = "April";
+  months[4] = "May";
+  months[5] = "June";
+  months[6] = "July";
+  months[7] = "August";
+  months[8] = "September";
+  months[9] = "October";
+  months[10] = "November";
+  months[11] = "December";
+
+  var refDateText = d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() + ", " + d.getHours() + ":" + d.getMinutes();
+
+  req.session.data['reference-date'] = refDateText;
+
+  res.redirect('save-progress');
+
+})
+
 module.exports = router
