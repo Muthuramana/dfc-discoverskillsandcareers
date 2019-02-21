@@ -47,6 +47,37 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
   var numQuestions = assessmentData['questions'].length;
   req.session.data['num-questions'] = numQuestions;
 
+  // Calculate completion status
+  var percComplete = 0;
+
+  if (qNum === 1 && req.session.data['start-assessment']) {
+
+    decCompleteExact = 0;
+
+  } else if (qNum === numQuestions) {
+
+    decCompleteExact = 1;
+
+  } else if (!req.session.data['answer']) {
+
+    decCompleteExact = req.session.data['assessment-status']['exact'];
+
+  } else {
+
+    decCompleteExact = qNum / numQuestions; // Exact decimal
+
+  }
+
+  decCompleteRounded = Math.round((decCompleteExact) * 10) / 10;
+  percComplete = decCompleteRounded * 100;
+
+  req.session.data['assessment-status'] = {
+    'exact': decCompleteExact,
+    'rounded': decCompleteRounded,
+    'percentage': percComplete
+  }
+
+  // Process outcome
   if (req.session.data['start-assessment']) {
 
     delete req.session.data['start-assessment'];
@@ -76,6 +107,7 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
   }
 
+  // Redirect
   if (assessmentComplete) {
 
     res.redirect('short-complete');

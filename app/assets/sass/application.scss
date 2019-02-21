@@ -147,6 +147,44 @@ header.govuk-header {
 
 }
 
+// Main panels
+
+.progress-status-panel {
+
+  .progress-number {
+    display: block;
+    float: left;
+    width: govuk-px-to-rem(100);
+    color: govuk-colour("green");
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+
+  .progress-bar {
+    display: block;
+    position: relative;
+    float: right;
+    top: govuk-px-to-rem(16);
+    width: calc(100% - 100px);
+    height: govuk-px-to-rem(10);
+    border-radius: govuk-px-to-rem(5);
+    background-color: govuk-colour("grey-2");
+    overflow: hidden;
+
+    span {
+      display: block;
+      height: govuk-px-to-rem(10);
+      width: 0%;
+      border-radius: govuk-px-to-rem(5);
+      background-color: govuk-colour("green");
+    }
+
+  }
+
+
+}
+
+
 // Sidebar
 
 .sidebar {
