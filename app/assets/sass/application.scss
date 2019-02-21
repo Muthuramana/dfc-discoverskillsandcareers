@@ -312,6 +312,16 @@ fieldset.app-question {
     text-align: right;
 
     button { width: govuk-px-to-rem(240); }
+
+    button.skip-questions {
+      float: left;
+      width: auto;
+      background-color: tint-25(govuk-colour("grey-3"));
+      box-shadow: 0 2px 0 govuk-colour("grey-3");
+      &:hover {
+        background-color: govuk-colour("grey-3");
+      }
+    }
   }
 
 }
