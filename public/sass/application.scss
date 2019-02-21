@@ -62,6 +62,26 @@ button.button-as-link {
 
 }
 
+a.back-to-top-link {
+  svg.icon {
+    display: inline-block;
+    width: .8em;
+    height: 1em;
+    margin-top: -5px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 // Main page header
 
 header.govuk-header {
@@ -114,7 +134,70 @@ header.govuk-header {
   @include govuk-responsive-padding(6, "bottom");
   background-color: tint-50(govuk-colour("grey-3"));
 
+  .govuk-grid-column-one-third {
+
+    margin-top: govuk-px-to-rem(-96);
+
+    .sidebar {
+
+      &.save-progress-panel {
+        @include govuk-responsive-margin(6, "bottom");
+        border-top: 3px solid shade-50(govuk-colour("turquoise"));
+        border-bottom: none;
+      }
+
+      &.use-results-panel {
+        border-top: 7px solid shade-25(govuk-colour("turquoise"));
+      }
+
+    }
+
+  }
+
 }
+
+// Main panels
+
+.progress-status-panel {
+  @include govuk-responsive-margin(9, "bottom");
+
+  .progress-number {
+    display: block;
+    float: left;
+    width: govuk-px-to-rem(100);
+    color: govuk-colour("green");
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+
+  .progress-bar {
+    display: block;
+    position: relative;
+    float: right;
+    top: govuk-px-to-rem(16);
+    width: calc(100% - 100px);
+    height: govuk-px-to-rem(10);
+    border-radius: govuk-px-to-rem(5);
+    background-color: govuk-colour("grey-2");
+    overflow: hidden;
+
+    span {
+      display: block;
+      height: govuk-px-to-rem(10);
+      width: 0%;
+      border-radius: govuk-px-to-rem(5);
+      background-color: govuk-colour("green");
+    }
+
+  }
+
+  &.status-100 {
+    .progress-number { color: govuk-colour("white"); }
+    .progress-bar span { background-color: govuk-colour("white"); }
+  }
+
+}
+
 
 // Sidebar
 
@@ -122,26 +205,26 @@ header.govuk-header {
 
   margin-bottom: govuk-px-to-rem(16);
   border-top: govuk-px-to-rem(8) solid shade-25(govuk-colour("turquoise"));
+  padding: govuk-px-to-rem(12);
   padding-top: govuk-px-to-rem(16);
 
   .govuk-form-group {
     margin-bottom: govuk-px-to-rem(16);
   }
 
-  &.resume-panel {
-  }
+  &.resume-panel {}
 
-  &.get-help-panel {
-  }
+  &.get-help-panel {}
 
   &.save-progress-panel {
     border-top: none;
     border-bottom: govuk-px-to-rem(2) solid $govuk-border-colour;
-    padding: govuk-px-to-rem(8);
     background-color: tint-50(govuk-colour("grey-3"));
     h3,
     p.govuk-body { margin-bottom: govuk-px-to-rem(8); }
   }
+
+  &.use-results-panel {}
 
 }
 
@@ -184,6 +267,77 @@ header.govuk-header {
 
 }
 
+// Assessment question
+
+fieldset.app-question {
+
+  div.question {}
+
+  div.answer {
+
+    border-left: 1px solid govuk-colour("black");
+    &.govuk-form-group--error { border-color: $govuk-error-colour; }
+
+    .govuk-radios {
+
+      .govuk-radios__item {
+        width: 20%;
+        margin-right: 0;
+        padding-left: 0;
+        text-align: center;
+
+        input.govuk-radios__input {
+          left: 50%;
+        }
+
+        label {
+          width:100%;
+          margin-top: 40px;
+
+          &:before {
+            left: 50%;
+          }
+          &:after {
+            left: calc(50% + 10px);
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+  div.next-button {
+    text-align: right;
+
+    button { width: govuk-px-to-rem(240); }
+
+    button.skip-questions {
+      float: left;
+      width: auto;
+      background-color: tint-25(govuk-colour("grey-3"));
+      box-shadow: 0 2px 0 govuk-colour("grey-3");
+      &:hover {
+        background-color: govuk-colour("grey-3");
+      }
+    }
+  }
+
+}
+
+// Assessment complete
+
+.govuk-panel--confirmation {
+  background-color: shade-25(govuk-colour("turquoise"));
+
+  h1.govuk-panel__title {
+    clear: both;
+    margin-top: 20px;
+  }
+
+}
+
 // Assessment results
 
 ul.assessment-results {
@@ -212,5 +366,29 @@ ul.assessment-results {
 
   }
 
+}
+
+// Save my progress
+
+.progress-reference-number-panel {
+
+  @include govuk-responsive-margin(7, "bottom");
+  border-left: govuk-px-to-rem(10) solid shade-25(govuk-colour("turquoise"));
+  @include govuk-responsive-padding(5);
+  @include govuk-responsive-padding(3, "top");
+  @include govuk-responsive-padding(3, "bottom");
+  background-color: tint-50(govuk-colour("grey-3"));
+
+  p { margin-bottom: 0; }
+
+  span.govuk-heading-xl {
+    margin-bottom: 0;
+    @include govuk-responsive-padding(2, "top");
+    @include govuk-responsive-padding(2, "bottom");
+  }
+
+  .ref-meta {
+    p { color: govuk-colour("grey-1"); }
+  }
 
 }

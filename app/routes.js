@@ -26,12 +26,22 @@ router.get("/a", function (req, res) {
 
 })
 
+// Resume assessment -----------------------------------------------------------
+router.post(/([a])\/(resume-assessment)/, function (req, res) {
+
+  var qNum = Math.floor((Math.random() * 20) + 1); // Random number between 1 and 20
+  var redirectUrl = 'short-assessment-q' + qNum;
+  req.session.data['resume-url'] = redirectUrl;
+
+  res.redirect(redirectUrl);
+  next
+
+})
+
 // Assessment / questions ------------------------------------------------------
 // One question route to rule them all!
+// Note: 999 generates a random qNum
 router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
-
-  var qUrl = req.params[1];
-  var qNum = Number(qUrl.substr(18));
 
   // Load the JSON data if not already in session
   if (!req.session.data['assessment-data']) {
@@ -46,6 +56,10 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
   var numQuestions = assessmentData['questions'].length;
   req.session.data['num-questions'] = numQuestions;
 
+  // Process the question number
+  var qUrl = req.params[1];
+  var qNum = Number(qUrl.substr(18));
+
   // Calculate completion status
   var percComplete = 0;
 
@@ -58,13 +72,18 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
     // decCompleteExact = 1; // Actually, don't ever show 100% during the assessment
     decCompleteExact = 0.99;
 
+  } else if (qNum === 999) {
+
+    qNum = Math.floor((Math.random() * numQuestions) + 1); // Random number between 1 and numQuestions
+    decCompleteExact = qNum / numQuestions;
+
   } else if (!req.session.data['answer']) {
 
     decCompleteExact = req.session.data['assessment-status']['exact'];
 
   } else {
 
-    decCompleteExact = qNum / numQuestions; // Exact decimal
+    decCompleteExact = qNum / numQuestions;
 
   }
 
@@ -90,6 +109,8 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
     req.session.data['question-num'] = qNum;
 
   } else {
+
+    req.session.data['last-answer'] = req.session.data['answer'];
 
     // Unset the current answer/state
     delete req.session.data['answer'];
