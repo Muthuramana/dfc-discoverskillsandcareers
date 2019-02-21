@@ -253,6 +253,49 @@ header.govuk-header {
 
 }
 
+// Assessment question
+
+fieldset.app-question {
+
+  div.question {}
+
+  div.answer {
+
+    border-left: 1px solid govuk-colour("black");
+    &.govuk-form-group--error { border-color: $govuk-error-colour; }
+
+    .govuk-radios {
+
+      .govuk-radios__item {
+        width: 20%;
+        margin-right: 0;
+        padding-left: 0;
+        text-align: center;
+
+        input.govuk-radios__input {
+          left: 50%;
+        }
+
+        label {
+          width:100%;
+          margin-top: 40px;
+
+          &:before {
+            left: 50%;
+          }
+          &:after {
+            left: calc(50% + 10px);
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
 // Assessment results
 
 ul.assessment-results {

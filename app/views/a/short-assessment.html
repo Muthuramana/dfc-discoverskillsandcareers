@@ -54,7 +54,7 @@
 
         <fieldset class="govuk-fieldset app-question">
 
-          <div class="govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
+          <div class="question govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
 
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
@@ -64,7 +64,7 @@
 
           </div>
 
-          <div class="govuk-grid-column-one-half govuk-form-group">
+          <div class="answer govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
 
             {% if data['error-missing'] %}
             <span id="select-answer-error" class="govuk-error-message">
@@ -72,7 +72,7 @@
             </span>
             {% endif %}
 
-            <div class="app-question__answer govuk-radios govuk-radios--inline">
+            <div class="govuk-radios govuk-radios--inline">
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="answer_agree_strongly" name="answer" type="radio" value="agree_strongly">
