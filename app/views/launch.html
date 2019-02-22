@@ -13,41 +13,33 @@
       <h1 class="govuk-heading-xl">NCS Prototypes</h1>
     </div>
 
-    <div class="govuk-grid-column-full">
-      <h2 class="govuk-heading-l">Latest and archived prototypes</h2>
-      <table class="govuk-table cols-2">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header col-1" scope="col">Release A<br/>
-              <span class="sub-heading">Beta phase prototype</span></th>
-            <th class="govuk-table__header col-2" scope="col">Release B<br/>
-              <span class="sub-heading">For future iterations</span></th>
-          </tr>
-        </thead>
+    <div class="prototype-version-list govuk-grid-column-full">
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-0">Beta phase</h2>
+      <table class="govuk-table">
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell" valign="top">
               <dl class="release-desc">
-                <dt><a href="/a/landing" class="govuk-link">Release A</a></dt>
-                <dd>Latest version, including design iterations w/c 18/02/19</dd>
+                <dt><a href="/a/landing" class="govuk-link">Release A</a> <span class="latest-version">Latest</span></dt>
+                <dd>Includes design iterations from w/c 18/02/19, built on fresh install of GOV.UK Prototype Kit</dd>
               </dl>
-            </td>
-            <td class="govuk-table__cell" valign="top">
-              TBC
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="govuk-grid-column-one-half">
+    <div class="prototype-about govuk-grid-column-one-half">
       <h2 class="govuk-heading-l">About</h2>
-      <p class="govuk-body">These prototypes remain in iteration during the Beta phase of the NCS project. The <strong>Latest</strong> version should always be stable and should be used in most scenarios, though regular date-versioned snapshots are archived for progress tracking and retrospective comparison.</p>
+      <p class="govuk-body">These prototypes remain in iteration during the Beta phase of the NCS project. The <span class="latest-version">Latest</span> version should always be stable and should be used in most scenarios, though regular date-versioned snapshots are archived for progress tracking and retrospective comparison.</p>
     </div>
 
-    <div class="govuk-grid-column-one-half">
+    <div class="prototype-resource-list govuk-grid-column-one-half">
       <h2 class="govuk-heading-l">Resources</h2>
-      <ul class="govuk-list">
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="https://design-system.service.gov.uk/">GDS Design System</a>, including <a href="https://design-system.service.gov.uk/styles/colour/">Colour guide</a></li>
+        <li><a class="govuk-link" href="https://mozilla.github.io/nunjucks/templating.html">Nunjucks templating guide</a></li>
+        <li><a class="govuk-link" href="https://ncs-beta.herokuapp.com/">Prototype version on Heroku</a></li>
         <li><a class="govuk-link" href="/kit/index">Original Prototype Kit index page</a></li>
       </ul>
     </div>

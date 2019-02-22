@@ -392,3 +392,33 @@ ul.assessment-results {
   }
 
 }
+
+// NON-PROTOTYPE STYLES e.g. Launch page
+// -------------------------------------
+.prototype-version-list,
+.prototype-about,
+.prototype-resource-list {
+
+  // Just to avoid having to add 'govuk-link--no-visited-state' to every link
+  .govuk-link:visited, a:visited { color: $govuk-link-colour; }
+  .govuk-link:hover, a:hover { color: $govuk-link-hover-colour; }
+
+  span.latest-version {
+    color: govuk-colour("orange");
+  }
+
+}
+
+.prototype-version-list {
+
+  dl.release-desc {
+
+    dt {}
+    dd {
+      margin-left: 0;
+      margin-bottom: govuk-px-to-rem(10);
+    }
+
+  }
+
+}
