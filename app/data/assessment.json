@@ -1,5 +1,5 @@
 {
-  "questions": [
+  "short-questions": [
     {
       "question": "I like to give people instructions",
       "errors": {
@@ -268,6 +268,22 @@
     },
     {
       "question": "I like working with my hands or tools",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    }
+  ],
+  "long-questions": [
+    {
+      "question": "I like to know what the questions are when I'm building a prototype",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I don't currently know what the questions are for this prototype I'm building",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""

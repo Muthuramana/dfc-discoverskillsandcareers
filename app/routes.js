@@ -53,7 +53,7 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
   // Setup the assessment data
   var assessmentData = req.session.data['assessment-data'];
-  var numQuestions = assessmentData['questions'].length;
+  var numQuestions = assessmentData['short-questions'].length;
   req.session.data['num-questions'] = numQuestions;
 
   // Process the question number

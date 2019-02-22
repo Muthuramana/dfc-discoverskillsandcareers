@@ -4,7 +4,7 @@
 {% set thisPage = "short-assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "See job categories" %} {# Required. Used for html title and in-page title or masthead title #}
-{% set questionData = data['assessment-data']['questions'][qNum - 1] %} {# Required. Used for question content #}
+{% set questionData = data['assessment-data']['short-questions'][qNum - 1] %} {# Required. Used for question content #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
 
