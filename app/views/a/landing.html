@@ -4,6 +4,7 @@
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "Discover your skills and careers" %} {# Required. Used for html title and in-page title or masthead title #}
 {% set pageIntro = "Take a quick assessment to see job categories you might be suited to. Or take a longer assessment to see specific job roles." %} {# Optional. Used in masthead. #}
+{% set errorMessageMissingRefNumber = "Enter the reference number you were given when you saved your progress" %}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
 
@@ -43,6 +44,19 @@
 
     <div class="govuk-grid-row">
 
+      {% if data['error-missing-reference-number'] %}
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+          <h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li><a href="#select-answer-error">{{ errorMessageMissingRefNumber }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
       <div class="govuk-grid-column-two-thirds">
 
         <div class="assessment-picker-panel">
@@ -73,15 +87,7 @@
 
       <div class="govuk-grid-column-one-third">
 
-        <div class="sidebar resume-panel">
-          <h3 class="govuk-heading-m">Return to an asessment</h3>
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="reference-number">Enter your reference number</label>
-            <input class="govuk-input" id="reference-number" name="reference-number" type="text">
-          </div>
-          <button type="submit" class="govuk-button" formaction="short-assessment-q999" name="answer" value="resume">Resume progress</button>
-        </div>
-
+        {% include "blocks/assessment-resume-progress.html" %}
         {% include "blocks/sidebar-get-help.html" %}
 
       </div>

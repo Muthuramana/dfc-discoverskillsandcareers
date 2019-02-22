@@ -74,8 +74,17 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
   } else if (qNum === 999) {
 
-    qNum = Math.floor((Math.random() * numQuestions) + 1); // Random number between 1 and numQuestions
-    decCompleteExact = qNum / numQuestions;
+    if (!req.session.data['reference-number']) {
+
+      req.session.data['error-missing-reference-number'] = true;
+      res.redirect('landing');
+
+    } else {
+
+      qNum = Math.floor((Math.random() * (numQuestions - 1)) + 1); // Random number between 1 and numQuestions - 1
+      decCompleteExact = qNum / numQuestions;
+
+    }
 
   } else if (!req.session.data['answer']) {
 
@@ -115,6 +124,7 @@ router.post(/([a])\/(short-assessment-q[0-9]*)/, function (req, res) {
     // Unset the current answer/state
     delete req.session.data['answer'];
     delete req.session.data['error-missing'];
+    delete req.session.data['error-missing-reference-number'];
 
     if (qNum === numQuestions) {
 

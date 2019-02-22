@@ -1,0 +1,16 @@
+
+<div class="sidebar resume-panel govuk-form-group {% if data['error-missing-reference-number'] %}govuk-form-group--error{% endif %}">
+  <h3 class="govuk-heading-m">Return to an assessment</h3>
+  {% if data['error-missing-reference-number'] %}
+  <span id="select-answer-error" class="govuk-error-message">
+    {{ errorMessageMissingRefNumber }}
+  </span>
+  {% endif %}
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="reference-number">Enter your reference number</label>
+    <input class="govuk-input" id="reference-number" name="reference-number" type="text">
+  </div>
+  <div class="govuk-form-group">
+    <button type="submit" class="govuk-button" formaction="short-assessment-q999" name="answer" value="resume">Resume progress</button>
+  </div>
+</div>
