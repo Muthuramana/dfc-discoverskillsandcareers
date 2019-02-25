@@ -2,7 +2,7 @@
 
 {% set thisPage = "long-complete" %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "long-results" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
-{% set pageTitle = "That's it, you've finished" %} {# Required. Used for html title and in-page title or masthead title #}
+{% set pageTitle = "Assessment complete" %} {# Required. Used for html title and in-page title or masthead title #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
 
@@ -31,9 +31,8 @@
         </div>
 
         <h2 class="govuk-heading-m">What to do next</h2>
-        <p class="govuk-body">On the next page you will see your results, which are based on the statements you have just responded to.</p>
-
-        <button type="submit" class="govuk-button">View results</button>
+        <p class="govuk-body">See the specific job roles that might suit you. Your results are based on your responses.</p>
+        <button type="submit" class="govuk-button">See results</button>
 
       </div>
 
