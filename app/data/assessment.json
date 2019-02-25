@@ -29,7 +29,7 @@
       }
     },
     {
-      "question": "I like having responsibility for other people",
+      "question": "I like taking responsibility for other people",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -43,7 +43,7 @@
       }
     },
     {
-      "question": "I prefer a general understanding of a problem to knowing the details",
+      "question": "I like to see things through to the end",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -57,7 +57,7 @@
       }
     },
     {
-      "question": "Taking part in something is just as important as winning",
+      "question": "I need to feel like I'm constantly improving",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -113,7 +113,7 @@
       }
     },
     {
-      "question": "I can still focus when I’ve got other people around me",
+      "question": "I enjoy working with other people around me",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -127,7 +127,7 @@
       }
     },
     {
-      "question": "I try to avoid hearing about things that might upset me",
+      "question": "I will get involved if I think I can help",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -148,14 +148,14 @@
       }
     },
     {
-      "question": "I like to have an overview of an issue rather than know the details",
+      "question": "I like to get to the centre of the issue",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
       }
     },
     {
-      "question": "I like to work with numbers",
+      "question": "I like working with facts and figures",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -169,7 +169,7 @@
       }
     },
     {
-      "question": "I'm the kind of person who likes detail",
+      "question": "I enjoy learning new things",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -183,7 +183,7 @@
       }
     },
     {
-      "question": "I find it easier to follow instructions than to come up with my own way of doing things",
+      "question": "I prefer to take my own approach",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -204,7 +204,7 @@
       }
     },
     {
-      "question": "I like creative activities like writing, painting or doing crafts",
+      "question": "I enjoy creative activities",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -218,7 +218,7 @@
       }
     },
     {
-      "question": "I like having a clear plan when I'm organising something",
+      "question": "I like to focus on the detail",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -232,7 +232,7 @@
       }
     },
     {
-      "question": "I never make plans in advance, I just do things when I want to do them",
+      "question": "I just do things when I want to do them",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -260,7 +260,7 @@
       }
     },
     {
-      "question": "I enjoy getting stuck into a practical task",
+      "question": "I enjoy getting involved in practical tasks",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
