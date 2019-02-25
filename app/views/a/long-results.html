@@ -1,8 +1,8 @@
 {% extends "layout-masthead.html" %}
 
-{% set thisPage = "results-short" %} {# Required. Used for automatically posting back to self #}
+{% set thisPage = "long-results" %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
-{% set pageTitle = "Job categories you might be suited to" %} {# Required. Used for html title and in-page title or masthead title #}
+{% set pageTitle = "Job roles you might be suited to" %} {# Required. Used for html title and in-page title or masthead title #}
 {% set pageIntro = "10 results" %} {# Optional. Used in masthead. #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
@@ -47,9 +47,9 @@
         <div class="govuk-grid-column-two-thirds">
 
           <h2 class="govuk-heading-l">What you told us</h2>
-          <p class="govuk-body">You like to be organised and pay attention to detail.</p>
-          <p class="govuk-body">You like working with your hands and solving problems.</p>
-          <p class="govuk-body">You like planning and working with others.</p>
+          <p class="govuk-body">You are a strong communicator. You have a confident and relaxed way of interacting, and you might do well in jobs that involve influencing other people's views and behaviour.</p>
+          <p class="govuk-body">You enjoy helping other people. You're respectful and supportive in social situations, and you put people first.</p>
+          <p class="govuk-body">You're well organised. You like to plan ahead, and you work in a systematic and organised ways. You're also good at following directions and procedures.</p>
           <p class="govuk-body">Because of your answers, we have provided the following job types. You can choose to view more results at the bottom of the page.</p>
 
         </div>
@@ -75,33 +75,176 @@
 
     <div class="govuk-grid-row">
 
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full">
 
         <h2 class="govuk-heading-l">Your results</h2>
 
-        <ul class="assessment-results">
+        <ul class="assessment-results job-roles">
 
           <li class="result-panel">
-            <h3 class="govuk-heading-m">Administration</h3>
+            <h3 class="govuk-heading-m">Call centre operator</h3>
             <div class="result-content">
-              <p class="govuk-body">To do administration jobs, you might need administration skills, the ability to work well with others, or customer service skills.</p>
-              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+              <p class="govuk-body">Call centre operators answer enquiries from customers by telephone, email, webchat, text and post.</p>
+              <div class="govuk-grid-row">
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">Average salary<span>(a year)</span></h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pound-sign" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-pound-sign fa-w-10 fa-2x"><path fill="currentColor" d="M308 352h-45.495c-6.627 0-12 5.373-12 12v50.848H128V288h84c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-84v-63.556c0-32.266 24.562-57.086 61.792-57.086 23.658 0 45.878 11.505 57.652 18.849 5.151 3.213 11.888 2.051 15.688-2.685l28.493-35.513c4.233-5.276 3.279-13.005-2.119-17.081C273.124 54.56 236.576 32 187.931 32 106.026 32 48 84.742 48 157.961V224H20c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h28v128H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h296c6.627 0 12-5.373 12-12V364c0-6.627-5.373-12-12-12z" class=""></path></svg>
+                  </div>
+                  <div class="salary-range result-meta">
+                    <p class="salary-min">£13,500</p>
+                    <p class="salary-max">£28,000</p>
+                    <div class="range-bar"><hr/></div>
+                    <p class="level-min">Starter</p>
+                    <p class="level-max">Experienced</p>
+                  </div>
+                </div>
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">Typical house<span>(a week)</span></h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-clock fa-w-16 fa-2x"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z" class=""></path></svg>
+                  </div>
+                  <div class="result-meta">
+                    <p class="hours">
+                      38 to 40
+                      <span>a week</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">You could work</h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-calendar-alt fa-w-14 fa-2x"><path fill="currentColor" d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" class=""></path></svg>
+                  </div>
+                  <div class="result-meta">
+                    <p class="work-pattern">
+                      evenings / weekends / bank holidays
+                      <span>on shifts</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="result-options govuk-grid-column-full">
+                  <h4 class="govuk-heading-s">Start your journey</h4>
+                </div>
+                <div class="result-hint govuk-grid-column-two-thirds">
+                  <p class="govuk-body">Choose from one of the two options to find out more information about this role, or training opportunities.</p>
+                </div>
+                <div class="result-actions govuk-grid-column-one-third">
+                  <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+                  <button type="submit" class="govuk-button govuk-button--start">View training opportunities</button>
+                </div>
+              </div>
             </div>
           </li>
 
           <li class="result-panel">
-            <h3 class="govuk-heading-m">Engineering and maintenance</h3>
+            <h3 class="govuk-heading-m">Building site inspector</h3>
             <div class="result-content">
-              <p class="govuk-body">To do engineering and maintenance jobs, you might need knowledge of engineering science and technology, to be thorough and pay attention to detail, or analytical thinking skills.</p>
-              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
-          </div>
+              <p class="govuk-body">Building site inspectors check the quality and safety of construction work.</p>
+              <div class="govuk-grid-row">
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">Average salary<span>(a year)</span></h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pound-sign" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-pound-sign fa-w-10 fa-2x"><path fill="currentColor" d="M308 352h-45.495c-6.627 0-12 5.373-12 12v50.848H128V288h84c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-84v-63.556c0-32.266 24.562-57.086 61.792-57.086 23.658 0 45.878 11.505 57.652 18.849 5.151 3.213 11.888 2.051 15.688-2.685l28.493-35.513c4.233-5.276 3.279-13.005-2.119-17.081C273.124 54.56 236.576 32 187.931 32 106.026 32 48 84.742 48 157.961V224H20c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h28v128H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h296c6.627 0 12-5.373 12-12V364c0-6.627-5.373-12-12-12z" class=""></path></svg>
+                  </div>
+                  <div class="salary-range result-meta">
+                    <p class="salary-min">£21,00</p>
+                    <p class="salary-max">£60,000</p>
+                    <div class="range-bar"><hr/></div>
+                    <p class="level-min">Starter</p>
+                    <p class="level-max">Experienced</p>
+                  </div>
+                </div>
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">Typical house<span>(a week)</span></h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-clock fa-w-16 fa-2x"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z" class=""></path></svg>
+                  </div>
+                  <div class="result-meta">
+                    <p class="hours">
+                      41 to 43
+                      <span>a week</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">You could work</h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-calendar-alt fa-w-14 fa-2x"><path fill="currentColor" d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" class=""></path></svg>
+                  </div>
+                  <div class="result-meta">
+                    <p class="work-pattern">
+                      evenings / weekends
+                    </p>
+                  </div>
+                </div>
+                <div class="result-options govuk-grid-column-full">
+                  <h4 class="govuk-heading-s">Start your journey</h4>
+                </div>
+                <div class="result-hint govuk-grid-column-two-thirds">
+                  <p class="govuk-body">Choose from one of the two options to find out more information about this role, or training opportunities.</p>
+                </div>
+                <div class="result-actions govuk-grid-column-one-third">
+                  <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+                  <button type="submit" class="govuk-button govuk-button--start">View training opportunities</button>
+                </div>
+              </div>
+            </div>
           </li>
 
           <li class="result-panel">
-            <h3 class="govuk-heading-m">Social care</h3>
+            <h3 class="govuk-heading-m">Care home manager</h3>
             <div class="result-content">
-              <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
-              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+              <p class="govuk-body">Care home managers are responsible for the leadership and day-to-day running of residential care homes.</p>
+              <div class="govuk-grid-row">
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">Average salary<span>(a year)</span></h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pound-sign" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-pound-sign fa-w-10 fa-2x"><path fill="currentColor" d="M308 352h-45.495c-6.627 0-12 5.373-12 12v50.848H128V288h84c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-84v-63.556c0-32.266 24.562-57.086 61.792-57.086 23.658 0 45.878 11.505 57.652 18.849 5.151 3.213 11.888 2.051 15.688-2.685l28.493-35.513c4.233-5.276 3.279-13.005-2.119-17.081C273.124 54.56 236.576 32 187.931 32 106.026 32 48 84.742 48 157.961V224H20c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h28v128H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h296c6.627 0 12-5.373 12-12V364c0-6.627-5.373-12-12-12z" class=""></path></svg>
+                  </div>
+                  <div class="salary-range result-meta">
+                    <p class="salary-min">£20,000</p>
+                    <p class="salary-max">£54,000</p>
+                    <div class="range-bar"><hr/></div>
+                    <p class="level-min">Starter</p>
+                    <p class="level-max">Experienced</p>
+                  </div>
+                </div>
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">Typical house<span>(a week)</span></h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-clock fa-w-16 fa-2x"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z" class=""></path></svg>
+                  </div>
+                  <div class="result-meta">
+                    <p class="hours">
+                      39 to 41
+                      <span>a week</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="result-detail govuk-grid-column-one-third">
+                  <h4 class="govuk-heading-s">You could work</h4>
+                  <div class="embedded-fa-icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-calendar-alt fa-w-14 fa-2x"><path fill="currentColor" d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" class=""></path></svg>
+                  </div>
+                  <div class="result-meta">
+                    <p class="work-pattern">
+                      evenings / weekends / bank holidays
+                      <span>on shifts</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="result-options govuk-grid-column-full">
+                  <h4 class="govuk-heading-s">Start your journey</h4>
+                </div>
+                <div class="result-hint govuk-grid-column-two-thirds">
+                  <p class="govuk-body">Choose from one of the two options to find out more information about this role, or training opportunities.</p>
+                </div>
+                <div class="result-actions govuk-grid-column-one-third">
+                  <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+                  <button type="submit" class="govuk-button govuk-button--start">View training opportunities</button>
+                </div>
+              </div>
             </div>
           </li>
 

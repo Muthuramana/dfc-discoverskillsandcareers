@@ -2,7 +2,7 @@
 
 {% set thisPage = "start" %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "long-assessment-q1" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
-{% set pageTitle = "See job roles" %} {# Required. Used for html title and in-page title or masthead title #}
+{% set pageTitle = "See specific job roles" %} {# Required. Used for html title and in-page title or masthead title #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
 
@@ -11,7 +11,7 @@
   {{ govukBreadcrumbs({
     items: [
       { text: "Discover your skills and careers", href: "landing" },
-      { text: "See job roles" }
+      { text: "See specific job roles" }
     ]
   }) }}
 
@@ -32,8 +32,8 @@
         <p class="govuk-body">We’ll use your answers to suggest types of jobs you might be suited to.</p>
 
         <h2 class="govuk-heading-m">How long will it take</h2>
-        <p class="govuk-body">There are 40 questions.</p>
-        <p class="govuk-body">The assessment will take 5 minutes to complete.</p>
+        <p class="govuk-body">There are 71 questions.</p>
+        <p class="govuk-body">The assessment will take 10 to 15 minutes to complete.</p>
         <p class="govuk-body">You can save your assessment to complete it or look at your results again another time.</p>
 
         <h2 class="govuk-heading-m">How to respond</h2>

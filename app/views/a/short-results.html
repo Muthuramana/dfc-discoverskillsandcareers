@@ -1,6 +1,6 @@
 {% extends "layout-masthead.html" %}
 
-{% set thisPage = "results-short" %} {# Required. Used for automatically posting back to self #}
+{% set thisPage = "short-results" %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "Job categories you might be suited to" %} {# Required. Used for html title and in-page title or masthead title #}
 {% set pageIntro = "10 results" %} {# Optional. Used in masthead. #}
@@ -79,7 +79,7 @@
 
         <h2 class="govuk-heading-l">Your results</h2>
 
-        <ul class="assessment-results">
+        <ul class="assessment-results job-categories">
 
           <li class="result-panel">
             <h3 class="govuk-heading-m">Administration</h3>

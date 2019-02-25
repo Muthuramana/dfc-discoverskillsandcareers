@@ -3,7 +3,7 @@
 {% set qNum = data['question-num'] | int %}
 {% set thisPage = "long-assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
-{% set pageTitle = "See job categories" %} {# Required. Used for html title and in-page title or masthead title #}
+{% set pageTitle = "See specific job roles" %} {# Required. Used for html title and in-page title or masthead title #}
 {% set questionData = data['assessment-data']['long-questions'][qNum - 1] %} {# Required. Used for question content #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
@@ -13,7 +13,7 @@
   {{ govukBreadcrumbs({
     items: [
       { text: "Home: Discover your skills and careers", href: "landing" },
-      { text: "See job categories" }
+      { text: "See specific job roles" }
     ]
   }) }}
 
