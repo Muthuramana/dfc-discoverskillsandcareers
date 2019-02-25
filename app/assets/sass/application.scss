@@ -261,8 +261,7 @@ header.govuk-header {
   }
 
   .picker-content {
-    padding: govuk-px-to-rem(16);
-    padding-top: 0;
+    @include govuk-responsive-padding(4);
   }
 
 }
