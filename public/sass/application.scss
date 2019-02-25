@@ -67,8 +67,8 @@ a.back-to-top-link {
     display: inline-block;
     width: .8em;
     height: 1em;
-    margin-top: -5px;
-    margin-right: 10px;
+    margin-top: govuk-px-to-rem(-5);
+    margin-right: govuk-px-to-rem(10);
     vertical-align: middle;
   }
 }
@@ -261,8 +261,7 @@ header.govuk-header {
   }
 
   .picker-content {
-    padding: govuk-px-to-rem(16);
-    padding-top: 0;
+    @include govuk-responsive-padding(4);
   }
 
 }
@@ -292,7 +291,7 @@ fieldset.app-question {
 
         label {
           width:100%;
-          margin-top: 40px;
+          @include govuk-responsive-margin(7, "top");
 
           &:before {
             left: 50%;
@@ -333,7 +332,7 @@ fieldset.app-question {
 
   h1.govuk-panel__title {
     clear: both;
-    margin-top: 20px;
+    @include govuk-responsive-margin(4, "top");
   }
 
 }
@@ -349,6 +348,16 @@ ul.assessment-results {
 
     padding-bottom: govuk-px-to-rem(32);
 
+    .result-content {
+
+      .govuk-button { margin-bottom: 0; }
+
+    }
+
+  }
+
+  &.job-categories {
+
     h3 {
       margin-bottom: 0;
       padding: govuk-px-to-rem(16);
@@ -360,7 +369,120 @@ ul.assessment-results {
       padding: govuk-px-to-rem(16);
       background-color: tint-50(govuk-colour("grey-3"));
 
-      .govuk-button { margin-bottom: 0; }
+    }
+
+  }
+
+  &.job-roles {
+
+    li.result-panel {
+      @include govuk-responsive-margin(6, "bottom");
+      border-bottom: 1px solid govuk-colour("grey-2");
+      @include govuk-responsive-padding(3, "bottom");
+
+      .result-content {
+
+
+        p.govuk-body:first-of-type { color: govuk-colour("grey-1"); }
+
+        .result-detail {
+
+          @include govuk-responsive-margin(2, "bottom");
+
+          h4 {
+            border-bottom: 1px solid govuk-colour("grey-2");
+            padding-bottom: govuk-px-to-rem(4);
+            font-weight: normal;
+
+            span { margin-left: govuk-px-to-rem(8); }
+          }
+
+          .embedded-fa-icon {
+            float: left;
+            width: govuk-px-to-rem(36);
+            height: auto;
+            padding: govuk-px-to-rem(2);
+            text-align: center;
+
+            svg {
+              height: govuk-px-to-rem(36);
+              color: shade-25(govuk-colour("turquoise"));
+            }
+          }
+
+          .result-meta {
+            float: right;
+            width: calc(100% - 60px);
+            @include govuk-responsive-padding(2, "left");
+
+            p {
+              float: left;
+              width: 50%;
+            }
+
+            p.salary-min {
+              margin-bottom: govuk-px-to-rem(8);
+              font-size: govuk-px-to-rem(22);
+            }
+
+            p.salary-max {
+              float: right;
+              margin-bottom: govuk-px-to-rem(8);
+              text-align: right;
+              font-size: govuk-px-to-rem(22);
+            }
+
+            div.range-bar {
+              clear: both;
+              margin-bottom: govuk-px-to-rem(8);
+              width: calc(100% - 8px);
+              border-left: 4px solid shade-25(govuk-colour("turquoise"));
+              border-right: 4px solid shade-25(govuk-colour("turquoise"));
+              padding-top: govuk-px-to-rem(4);
+              padding-bottom: govuk-px-to-rem(4);
+
+              hr {
+                border: 2px solid shade-25(govuk-colour("turquoise"));
+              }
+            }
+
+            p.level-min {
+            }
+
+            p.level-max {
+              float: right;
+              text-align: right;
+            }
+
+            p.hours,
+            p.work-pattern {
+              width: 100%;
+              font-size: govuk-px-to-rem(22);
+
+              span {
+                display: block;
+                font-size: govuk-px-to-rem(19);
+              }
+            }
+
+          }
+
+        }
+
+        .result-options {
+          h4 { @include govuk-responsive-margin(2, "bottom"); }
+        }
+
+        .result-hint {}
+
+        .result-actions {
+          .govuk-button {
+            margin-bottom: govuk-px-to-rem(12);
+            font-size: govuk-px-to-rem(19);
+          }
+        }
+
+      }
 
     }
 
@@ -373,7 +495,7 @@ ul.assessment-results {
 .progress-reference-number-panel {
 
   @include govuk-responsive-margin(7, "bottom");
-  border-left: govuk-px-to-rem(10) solid shade-25(govuk-colour("turquoise"));
+  border-left: 10px solid shade-25(govuk-colour("turquoise"));
   @include govuk-responsive-padding(5);
   @include govuk-responsive-padding(3, "top");
   @include govuk-responsive-padding(3, "bottom");
@@ -389,6 +511,36 @@ ul.assessment-results {
 
   .ref-meta {
     p { color: govuk-colour("grey-1"); }
+  }
+
+}
+
+// NON-PROTOTYPE STYLES e.g. Launch page
+// -------------------------------------
+.prototype-version-list,
+.prototype-about,
+.prototype-resource-list {
+
+  // Just to avoid having to add 'govuk-link--no-visited-state' to every link
+  .govuk-link:visited, a:visited { color: $govuk-link-colour; }
+  .govuk-link:hover, a:hover { color: $govuk-link-hover-colour; }
+
+  span.latest-version {
+    color: govuk-colour("orange");
+  }
+
+}
+
+.prototype-version-list {
+
+  dl.release-desc {
+
+    dt {}
+    dd {
+      margin-left: 0;
+      @include govuk-responsive-margin(2, "bottom");
+    }
+
   }
 
 }
