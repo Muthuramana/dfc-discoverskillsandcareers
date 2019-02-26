@@ -3,11 +3,12 @@ $govuk-global-styles: true;
 @import 'node_modules/govuk-frontend/all';
 
 $app-purple: #8c0052;
+$app-blue: #005ea5;
 $app-purple-hover: #A73C7B;
 $app-turquoise: #1F7E77;
 $app-turquoise-hover: #48948E;
 $app-dark-border: #7b0048;
-$app-text-light: #646C70; 
+$app-text-light: #646C70;
 
 @import 'progress';
 @import 'masthead';
@@ -45,7 +46,7 @@ $app-text-light: #646C70;
 }
 
 .govuk-header__container {
-  border-bottom-color: $app-purple;
+  border-bottom-color: $app-blue;
 }
 
 .govuk-phase-bannertag {  // legacy version support
@@ -54,7 +55,7 @@ $app-text-light: #646C70;
 
 .govuk-phase-bannertag,  // legacy version support
 .govuk-phase-banner__content__tag {
-  background-color: $app-purple;
+  background-color: $app-blue;
   color: govuk-colour('white');
 }
 
@@ -62,22 +63,6 @@ $app-text-light: #646C70;
 .app-page--results {
   .govuk-header__container {
     border-bottom-color: govuk-colour('white');
-  }
-}
-
-.app-button {
-
-  &,
-  &:link, 
-  &:visited {
-    background-color: $app-purple;
-    color: govuk-colour('white');
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: $app-purple-hover;
   }
 }
 
@@ -133,7 +118,7 @@ $app-text-light: #646C70;
   }
 
   input[type=radio]:checked + &.govuk-radios__label {
-    outline: 3px solid  $govuk-focus-colour;  
+    outline: 3px solid  $govuk-focus-colour;
     outline-offset: 0;
   }
 }
@@ -148,8 +133,8 @@ $app-text-light: #646C70;
 }
 
 .govuk-tag--coming-soon {
-  background-color: govuk-colour('white'); 
-  color: $app-turquoise; 
+  background-color: govuk-colour('white');
+  color: $app-turquoise;
 }
 
 .app-back-to-top__icon {
