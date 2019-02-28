@@ -205,7 +205,7 @@ header.govuk-header {
 
   margin-bottom: govuk-px-to-rem(16);
   border-top: govuk-px-to-rem(8) solid shade-25(govuk-colour("turquoise"));
-  padding: govuk-px-to-rem(12);
+  padding: govuk-px-to-rem(0);
   padding-top: govuk-px-to-rem(16);
 
   .govuk-form-group {
@@ -254,7 +254,8 @@ header.govuk-header {
   border-bottom: govuk-px-to-rem(2) solid $govuk-border-colour;
 
   h2 {
-    margin-bottom: 0;
+    margin-bottom: 10;
+    margin-top: ;
     padding: govuk-px-to-rem(16);
     background-color: govuk-colour("blue");
     color: govuk-colour("white");
