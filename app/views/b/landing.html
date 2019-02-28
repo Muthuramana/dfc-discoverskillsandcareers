@@ -1,0 +1,101 @@
+{% extends "layout-masthead.html" %}
+
+{% set thisPage = "landing" %} {# Required. Used for automatically posting back to self #}
+{% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set pageTitle = "Discover your skills and careers" %} {# Required. Used for html title and in-page title or masthead title #}
+{% set pageIntro = "Take a quick assessment to see job categories you might be suited to. Or take a longer assessment to see specific job roles." %} {# Optional. Used in masthead. #}
+{% set errorMessageMissingRefNumber = "Enter the reference number you were given when you saved your progress" %}
+
+{% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
+
+{% block header %}
+
+  {{ super() }}
+
+  <div class="page-masthead govuk-full-width-container">
+    <div class="govuk-width-container">
+
+      {% include "blocks/phase-banner.html" %}
+
+      {{ govukBreadcrumbs({
+        items: [
+          {
+            text: "Home: Discover your skills and careers"
+          }
+        ]
+      }) }}
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block content %}
+
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form">
+
+    <div class="govuk-grid-row">
+
+      {% if data['error-missing-reference-number'] %}
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+          <h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li><a href="#select-answer-error">{{ errorMessageMissingRefNumber }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="assessment-picker-panel">
+          <h2 class="govuk-heading-l">Discover job categories that could suit you</h2>
+          <div class="picker-content">
+            <p class="govuk-body">Take this assessment to find out what types of jobs might suit you, for example “retail and sales”.</p>
+            <div class="govuk-inset-text">
+              This could take 5 minutes. It will take longer if you’re using assistive technologies, for example a screen reader or screen magnifier.
+            </div>
+            <p class="govuk-body">
+              <button type="submit" class="button-as-link" formaction="short-start">Start assessment</button>
+            </p>
+          </div>
+        </div>
+
+        <div class="assessment-picker-panel">
+          <h2 class="govuk-heading-l">Discover specific job roles that could suit you</h2>
+          <div class="picker-content">
+            <p class="govuk-body">Take this assessment to find out what specific job roles might suit you, for example “florist”.</p>
+            <div class="govuk-inset-text">
+              This could take 15 minutes. It will take longer if you’re using assistive technologies, for example a screen reader or screen magnifier. 
+            </div>
+            <p class="govuk-body">
+              {# <button type="submit" class="button-as-link" formaction="start" disabled>Start long assessment</button> #}
+              <button type="submit" class="button-as-link" formaction="long-start">Start assessment</button>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+        {% include "blocks/assessment-resume-progress.html" %}
+        {% include "blocks/sidebar-get-help.html" %}
+
+      </div>
+
+    </div>
+
+  </form>
+
+{% endblock %}
