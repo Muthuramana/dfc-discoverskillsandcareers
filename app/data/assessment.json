@@ -1,7 +1,7 @@
 {
   "short-questions": [
     {
-      "question": "I like to give people instructions",
+      "question": "I am comfortable telling people what they need to do",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -22,7 +22,7 @@
       }
     },
     {
-      "question": "I like to follow other people's lead ",
+      "question": "I prefer to follow what other people are doing",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -36,7 +36,7 @@
       }
     },
     {
-      "question": "I set myself targets when I've got a task to do",
+      "question": "I set myself targets and usually meet them",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -50,7 +50,7 @@
       }
     },
     {
-      "question": "I enjoy competing against other people",
+      "question": "I think I am a competitive person",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -71,7 +71,7 @@
       }
     },
     {
-      "question": "I like to persuade others",
+      "question": "I enjoy recommending things to other people",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -134,7 +134,7 @@
       }
     },
     {
-      "question": "I like hearing what other people have to say",
+      "question": "I am comfortable hearing other people's problems",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -190,14 +190,14 @@
       }
     },
     {
-      "question": "I like to use my imagination to create new things",
+      "question": "I like to use my imagination",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
       }
     },
     {
-      "question": "I like being part of a team",
+      "question": "I like to try new things",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -246,7 +246,7 @@
       }
     },
     {
-      "question": "I like having something physical to show for my work",
+      "question": "I like to have something to show for my work",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -268,6 +268,13 @@
     },
     {
       "question": "I like working with my hands or tools",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "I enjoy planning a task more than actually doing it",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
