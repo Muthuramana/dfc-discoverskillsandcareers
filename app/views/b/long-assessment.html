@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 
+{% set bodyClasses = "version-b" %}
 {% set qNum = data['question-num'] | int %}
 {% set thisPage = "long-assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
