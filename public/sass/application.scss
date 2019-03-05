@@ -12,6 +12,8 @@ $govuk-global-styles: true;
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 
+
+
 /*--- FUNCTIONS --------------------------------------------------------------*/
 
 // Lighten a color
@@ -205,8 +207,8 @@ header.govuk-header {
 
   margin-bottom: govuk-px-to-rem(16);
   border-top: govuk-px-to-rem(8) solid shade-25(govuk-colour("turquoise"));
-  padding: govuk-px-to-rem(12);
-  padding-top: govuk-px-to-rem(16);
+  padding: govuk-px-to-rem(0);
+  padding-top: govuk-px-to-rem(0);
 
   .govuk-form-group {
     margin-bottom: govuk-px-to-rem(16);
@@ -254,8 +256,8 @@ header.govuk-header {
   border-bottom: govuk-px-to-rem(2) solid $govuk-border-colour;
 
   h2 {
-    margin-bottom: 0;
-    padding: govuk-px-to-rem(16);
+    margin-bottom: 10;
+        padding: govuk-px-to-rem(16);
     background-color: govuk-colour("blue");
     color: govuk-colour("white");
   }
@@ -328,7 +330,7 @@ fieldset.app-question {
 // Assessment complete
 
 .govuk-panel--confirmation {
-  background-color: shade-25(govuk-colour("turquoise"));
+  background-color: govuk-colour("turquoise");
 
   h1.govuk-panel__title {
     clear: both;
@@ -544,3 +546,7 @@ ul.assessment-results {
   }
 
 }
+
+// Version overrides
+@import "versions/version-a";
+@import "versions/version-b";
