@@ -51,53 +51,58 @@
 
       </div>
 
-      <div class="govuk-grid-column-full govuk-!-margin-top-6">
+      <div class="govuk-!-margin-top-6">
 
         <fieldset class="govuk-fieldset app-question">
 
-          <div class="question govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
+          <div class="govuk-grid-row">
 
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                {{ questionData['question'] }}
-              </h1>
-            </legend>
+            <div class="question govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
 
-          </div>
 
-          <div class="answer govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  {{ questionData['question'] }}
+                </h1>
+              </legend>
 
-            {% if data['error-missing'] %}
-            <span id="select-answer-error" class="govuk-error-message">
-              {{ questionData['errors']['missing'] }}
-            </span>
-            {% endif %}
+            </div>
 
-            <div class="govuk-radios govuk-radios--inline">
+            <div class="answer govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="answer_agree_strongly" name="answer" type="radio" value="agree_strongly">
-                <label class="govuk-label govuk-radios__label" for="answer_agree_strongly">Strongly agree</label>
-              </div>
+              {% if data['error-missing'] %}
+              <span id="select-answer-error" class="govuk-error-message">
+                {{ questionData['errors']['missing'] }}
+              </span>
+              {% endif %}
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="answer_agree" name="answer" type="radio" value="agree">
-                <label class="govuk-label govuk-radios__label" for="answer_agree">Agree</label>
-              </div>
+              <div class="govuk-radios govuk-radios--inline">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="answer_neutral" name="answer" type="radio" value="neutral">
-                <label class="govuk-label govuk-radios__label" for="answer_neutral">Neutral</label>
-              </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_agree_strongly" name="answer" type="radio" value="agree_strongly">
+                  <label class="govuk-label govuk-radios__label" for="answer_agree_strongly">Strongly agree</label>
+                </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="answer_disagree" name="answer" type="radio" value="disagree">
-                <label class="govuk-label govuk-radios__label" for="answer_disagree">Disagree</label>
-              </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_agree" name="answer" type="radio" value="agree">
+                  <label class="govuk-label govuk-radios__label" for="answer_agree">Agree</label>
+                </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="answer_disagree_strongly" name="answer" type="radio" value="disagree_strongly">
-                <label class="govuk-label govuk-radios__label" for="answer_disagree_strongly">Strongly disagree</label>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_neutral" name="answer" type="radio" value="neutral">
+                  <label class="govuk-label govuk-radios__label" for="answer_neutral">It depends</label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_disagree" name="answer" type="radio" value="disagree">
+                  <label class="govuk-label govuk-radios__label" for="answer_disagree">Disagree</label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_disagree_strongly" name="answer" type="radio" value="disagree_strongly">
+                  <label class="govuk-label govuk-radios__label" for="answer_disagree_strongly">Strongly disagree</label>
+                </div>
+
               </div>
 
             </div>
