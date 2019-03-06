@@ -1,9 +1,9 @@
-<div class="progress-status-panel status-{{ data['assessment-status']['percentage'] | string or '0' }}">
+<div class="progress-status-panel status-{{ data['assessment-status']['percentage'] | percentageString }}">
   <div class="progress-number">
-    <span class="govuk-!-font-size-36">{{ data['assessment-status']['percentage'] | string or ??}}%</span>
+    <span class="govuk-!-font-size-36">{{ data['assessment-status']['percentage'] | percentageString }}%</span>
     <span class="visually-hidden">Complete</span>
   </div>
   <div class="progress-bar">
-    <span style="width: {{ data['assessment-status']['percentage'] | string or '0' }}%"></span>
+    <span style="width: {{ data['assessment-status']['percentage'] | percentageString }}%"></span>
   </div>
 </div>

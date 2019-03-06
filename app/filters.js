@@ -7,6 +7,10 @@ module.exports = function (env) {
    */
   var filters = {}
 
+  filters.percentageString = function(percent) {
+    return percent ? percent.toString() : '0'
+  }
+
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
     @example:
