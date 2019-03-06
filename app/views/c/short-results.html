@@ -1,0 +1,121 @@
+{% extends "layout-masthead.html" %}
+
+{% set bodyClasses = "version-c" %}
+{% set thisPage = "short-results" %} {# Required. Used for automatically posting back to self #}
+{% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set pageTitle = "Job categories you might be suited to" %} {# Required. Used for html title and in-page title or masthead title #}
+{% set pageIntro = "10 results" %} {# Optional. Used in masthead. #}
+
+{% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
+
+{% block header %}
+
+  {{ super() }}
+
+  <div class="page-masthead govuk-full-width-container">
+    <div class="govuk-width-container">
+
+      {% include "blocks/phase-banner.html" %}
+
+      {{ govukBreadcrumbs({
+        items: [
+          { text: "Home: Discover your skills and careers", href: "landing" },
+          { text: "Discover job categories", href: "start" },
+          { text: "Results" }
+        ]
+      }) }}
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+          <p class="govuk-body-l">{{ pageIntro }}</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="results-intro-panel govuk-full-width-container">
+    <div class="govuk-width-container">
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+
+          <h2 class="govuk-heading-l">What you told us</h2>
+          <p class="govuk-body">You like to be organised and pay attention to detail.</p>
+          <p class="govuk-body">You like working with your hands and solving problems.</p>
+          <p class="govuk-body">You like planning and working with others.</p>
+          <p class="govuk-body">Because of your answers, we have provided the following job types. You can choose to view more results at the bottom of the page.</p>
+
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+
+          {% include "blocks/assessment-save-progress.html" %}
+          {% include "blocks/assessment-use-results.html" %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block content %}
+
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-l">Your results</h2>
+
+        <ul class="assessment-results job-categories">
+
+          <li class="result-panel">
+            <h3 class="govuk-heading-m">Administration</h3>
+            <div class="result-content">
+              <p class="govuk-body">To do administration jobs, you might need administration skills, the ability to work well with others, or customer service skills.</p>
+              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+            </div>
+          </li>
+
+          <li class="result-panel">
+            <h3 class="govuk-heading-m">Engineering and maintenance</h3>
+            <div class="result-content">
+              <p class="govuk-body">To do engineering and maintenance jobs, you might need knowledge of engineering science and technology, to be thorough and pay attention to detail, or analytical thinking skills.</p>
+              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+          </div>
+          </li>
+
+          <li class="result-panel">
+            <h3 class="govuk-heading-m">Social care</h3>
+            <div class="result-content">
+              <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
+              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+            </div>
+          </li>
+
+        </ul>
+
+        <h3 class="govuk-heading-m">See 7 other job categories you are suited to</h3>
+        <p class="govuk-body"><a href="#">See matches</a></p>
+        {% include "blocks/back-to-top-link.html" %}
+
+      </div>
+
+    </div>
+
+  </form>
+
+{% endblock %}

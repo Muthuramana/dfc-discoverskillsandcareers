@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% set bodyClasses = "version-c" %}
+{% set qNum = data['question-num'] | int %}
+{% set thisPage = "long-assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
+{% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set pageTitle = "See specific job roles" %} {# Required. Used for html title and in-page title or masthead title #}
+{% set questionData = data['assessment-data']['long-questions'][qNum - 1] %} {# Required. Used for question content #}
+
+{% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      { text: "Home: Discover your skills and careers", href: "landing" },
+      { text: "Discover specific job roles" }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form">
+
+    <div class="govuk-grid-row">
+
+      {% if data['error-missing'] %}
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+          <h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li><a href="#select-answer-error">{{ questionData['errors']['missing'] }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include "blocks/assessment-progress-status.html" %}
+
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+        {% include "blocks/assessment-save-progress.html" %}
+
+      </div>
+
+      <div class="govuk-!-margin-top-6">
+
+        <fieldset class="govuk-fieldset app-question">
+
+          <div class="govuk-grid-row">
+
+            <div class="question govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
+
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  {{ questionData['question'] }}
+                </h1>
+              </legend>
+
+            </div>
+
+            <div class="answer govuk-grid-column-one-half govuk-form-group {% if data['error-missing'] %}govuk-form-group--error{% endif %}">
+
+              {% if data['error-missing'] %}
+              <span id="select-answer-error" class="govuk-error-message">
+                {{ questionData['errors']['missing'] }}
+              </span>
+              {% endif %}
+
+              <div class="govuk-radios govuk-radios--inline">
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_agree_strongly" name="answer" type="radio" value="agree_strongly">
+                  <label class="govuk-label govuk-radios__label" for="answer_agree_strongly">Strongly agree</label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_agree" name="answer" type="radio" value="agree">
+                  <label class="govuk-label govuk-radios__label" for="answer_agree">Agree</label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_neutral" name="answer" type="radio" value="neutral">
+                  <label class="govuk-label govuk-radios__label" for="answer_neutral">It depends</label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_disagree" name="answer" type="radio" value="disagree">
+                  <label class="govuk-label govuk-radios__label" for="answer_disagree">Disagree</label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answer_disagree_strongly" name="answer" type="radio" value="disagree_strongly">
+                  <label class="govuk-label govuk-radios__label" for="answer_disagree_strongly">Strongly disagree</label>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="next-button govuk-grid-column-full govuk-form-group">
+
+            <button type="submit" class="skip-questions govuk-button" formaction="long-assessment-q{{ data['num-questions'] }}">Skip</button>
+            <button type="submit" class="govuk-button">Next</button>
+
+          </div>
+
+        </fieldset>
+
+      </div>
+
+    </div>
+
+  </form>
+
+{% endblock %}
