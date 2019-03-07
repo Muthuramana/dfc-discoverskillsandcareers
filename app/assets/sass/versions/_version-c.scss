@@ -32,4 +32,18 @@
     .sidebar p.govuk-body {
         margin-bottom: govuk-spacing(1);
     }
+    .results-intro-panel .govuk-grid-column-one-third {
+        margin-top: govuk-px-to-rem(0);
+    }
+    &.job-categories {
+        h3 {
+          margin-bottom: 0;
+          padding: govuk-px-to-rem(16);
+          background-color: white;
+        }
+        .result-content {
+          padding: govuk-px-to-rem(16);
+          background-color: white;
+        }
+      }
 }
