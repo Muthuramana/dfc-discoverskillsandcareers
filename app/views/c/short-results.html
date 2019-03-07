@@ -3,7 +3,7 @@
 {% set bodyClasses = "version-c" %}
 {% set thisPage = "short-results" %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
-{% set pageTitle = "Job categories you might be suited to" %} {# Required. Used for html title and in-page title or masthead title #}
+{% set pageTitle = "Your results" %} {# Required. Used for html title and in-page title or masthead title #}
 {% set pageIntro = "10 results" %} {# Optional. Used in masthead. #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
@@ -29,7 +29,7 @@
 
         <div class="govuk-grid-column-two-thirds">
 
-          <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+          <h1 class="govuk-heading-xl">Your results</h1>
           <p class="govuk-body-l">{{ pageIntro }}</p>
 
         </div>
@@ -48,16 +48,17 @@
         <div class="govuk-grid-column-two-thirds">
 
           <h2 class="govuk-heading-l">What you told us</h2>
-          <p class="govuk-body">You like to be organised and pay attention to detail.</p>
-          <p class="govuk-body">You like working with your hands and solving problems.</p>
-          <p class="govuk-body">You like planning and working with others.</p>
-          <p class="govuk-body">Because of your answers, we have provided the following job types. You can choose to view more results at the bottom of the page.</p>
+          <p class="govuk-body">You are a strong communicator. You have a confident and relaxed way of interacting, and you might do well in jobs that involve influencing other people's views and behaviour.</p>
+          <p class="govuk-body">You enjoy helping other people. You're respectful and supportive in social situations, and you put people first.</p>
+          <p class="govuk-body">You're well organised. You like to plan ahead, and you work in a systematic and organised ways. You're also good at following directions and procedures.</p>
+          <p class="govuk-body">Because of your answers, we have provided the following job categories. You can choose to view more results at the bottom of the page.</p>
 
         </div>
 
         <div class="govuk-grid-column-one-third">
 
           {% include "blocks/assessment-use-results.html" %}
+          {% include "blocks/sidebar-get-help.html" %}
 
         </div>
 
@@ -85,7 +86,9 @@
             <h3 class="govuk-heading-m">Administration</h3>
             <div class="result-content">
               <p class="govuk-body">To do administration jobs, you might need administration skills, the ability to work well with others, or customer service skills.</p>
-              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/administration>See all administration roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in adminstration, answer more questions.</p>
+              <button type="submit" class="govuk-button">See job category</button>
             </div>
           </li>
 
@@ -93,7 +96,9 @@
             <h3 class="govuk-heading-m">Engineering and maintenance</h3>
             <div class="result-content">
               <p class="govuk-body">To do engineering and maintenance jobs, you might need knowledge of engineering science and technology, to be thorough and pay attention to detail, or analytical thinking skills.</p>
-              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/engineering-and-maintenance>See all engineering and maintenance roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in engineering and maintenance, answer more questions.</p>
+              <button type="submit" class="govuk-button">See job category</button>
           </div>
           </li>
 
@@ -101,7 +106,9 @@
             <h3 class="govuk-heading-m">Social care</h3>
             <div class="result-content">
               <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
-              <button type="submit" class="govuk-button govuk-button--start">See job category</button>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/social-care>See all social care roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in social care, answer more questions.</p>
+              <button type="submit" class="govuk-button">See job category</button>
             </div>
           </li>
 
@@ -110,6 +117,8 @@
         <h3 class="govuk-heading-m">See 7 other job categories you are suited to</h3>
         <p class="govuk-body"><a href="#">See matches</a></p>
         {% include "blocks/back-to-top-link.html" %}
+
+      </div>
 
       </div>
 

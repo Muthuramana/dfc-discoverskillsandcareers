@@ -1,0 +1,49 @@
+.version-c {
+    .assessment-picker-panel {
+        background-color: white;
+        border-bottom: 0 solid;
+        .picker-content {
+        padding: 0;
+        } 
+    }
+    .picker-content .govuk-body {
+        margin-bottom: govuk-spacing(3);
+    }
+    .picker-content .govuk-inset-text {
+        padding: 20px;
+        margin-top: govuk-spacing(6);
+        margin-bottom: govuk-spacing(6);
+    }
+    .govuk-main-wrapper {
+        padding-top: govuk-spacing(7);
+    }
+    .assessment-picker-panel h2 {
+        margin-bottom: govuk-spacing(0);
+    }
+    .sidebar.save-progress-panel {
+        padding-left: 10px;
+    }
+    .govuk-panel--confirmation .progress-status-panel .progress-bar {
+        background-color: white;
+    }
+    .sidebar .govuk-heading-m {
+        padding-top: govuk-spacing(3);
+    }
+    .sidebar p.govuk-body {
+        margin-bottom: govuk-spacing(1);
+    }
+    .results-intro-panel .govuk-grid-column-one-third {
+        margin-top: govuk-px-to-rem(0);
+    }
+    &.job-categories {
+        h3 {
+          margin-bottom: 0;
+          padding: govuk-px-to-rem(16);
+          background-color: white;
+        }
+        .result-content {
+          padding: govuk-px-to-rem(16);
+          background-color: white;
+        }
+      }
+}
