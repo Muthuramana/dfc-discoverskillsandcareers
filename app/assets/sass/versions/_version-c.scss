@@ -135,4 +135,25 @@
     .govuk-inset-text :first-child {
         padding-top: 0px;
     }
+
+    .govuk-heading-m.job-category-title {
+        margin-bottom: 5px;
+        }
+    
+    a.back-to-top-link {
+        display: block;
+        margin-top: 20px;
+        svg.icon {
+            display: inline-block;
+            width: .8em;
+            height: 1em;
+            margin-right: govuk-px-to-rem(10);
+            vertical-align: middle;
+        }
+    }
+
+    .long-results-category {
+        margin-top: 20px;
+        margin-bottom: 100px;
+    }
 }

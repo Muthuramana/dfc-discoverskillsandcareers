@@ -29,8 +29,8 @@
 
         <div class="govuk-grid-column-two-thirds">
 
-          <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
-          <p class="govuk-body-l">{{ pageIntro }}</p>
+          <h1 class="govuk-heading-xl">Your results</h1>
+        
 
         </div>
 
@@ -79,29 +79,134 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Your results</h1>
-        <p class="govuk-body-m subtext">There are 3 job roles suitable for you in Administration</p>
+        <h1 class="govuk-heading-l">Job roles you might be suited to</h1>
       </div>
     </div>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
-        <h3 class="govuk-heading-m">One-third column</h3>
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="sort">
-            Sort by
-          </label>
-          <select class="govuk-select" id="sort" name="sort">
-            <option value="published">Recently published</option>
-            <option value="updated" selected>Recently updated</option>
-            <option value="views">Most views</option>
-            <option value="comments">Most comments</option>
-          </select>
-        </div>
+        <h3 class="govuk-heading-m">Filter your results</h3>
+          <div class="active-filters">
+            <p class="govuk-body">Active filters: <a href="#">reset</a></p><!-- needs filter link -->
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort">
+              Sort by
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="published">Recently published</option>
+              <option value="updated" selected>Recently updated</option>
+              <option value="views">Most views</option>
+              <option value="comments">Most comments</option>
+            </select>
+          </div>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Salary
+                </h1>
+              </legend>
+              </span>
+              <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-1">
+                    Salary over £20,000
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                    Salary over £30,000
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                    Salary over £40,000
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Working pattern
+                </h1>
+              </legend>
+              </span>
+              <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-1">
+                    No weekend work
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                    No shift work
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Working hours
+                </h1>
+              </legend>
+              </span>
+              <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-1">
+                    15 - 20 hours a week
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                    20 - 25 hours a week
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                    25 - 30 hours a week
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                    30 - 35 hours a week
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                    35 - 40 hours a week
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button type="submit" class="govuk-button">
+          Apply filters
+          </button>
+          {% include "blocks/back-to-top-link.html" %}
       </div>
 
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m">Administration</h2>
+        <h2 class="govuk-heading-m job-category-title">Administration</h2>
+        <p class="govuk-body-m subtext">There are 3 job roles suitable for you in Administration</p>
         <p class="govuk-body">To do administration jobs, you might need administration skills, the ability to work well with others, or customer service skills.</p>
         <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/administration>See all administration roles</a></p>
           <div class="govuk-inset-text">
@@ -136,6 +241,7 @@
                 </div> 
             </div>
       </div>
+        <div class="long-results-category">
           <h3 class="govuk-heading-m">Engineering and maintenance</h3>
               <div class="result-content">
                 <p class="govuk-body">To do engineering and maintenance jobs, you might need knowledge of engineering science and technology, to be thorough and pay attention to detail, or analytical thinking skills.</p>
@@ -143,6 +249,8 @@
                 <p class="govuk-body">To find out job roles you might be suited to in engineering and maintenance, answer more questions.</p>
                 <button type="submit" class="govuk-button">See job category</button>
               </div>
+        </div>
+        <div class="long-results-category">
           <h3 class="govuk-heading-m">Engineering and maintenance</h3>
               <div class="result-content">
                 <p class="govuk-body">To do engineering and maintenance jobs, you might need knowledge of engineering science and technology, to be thorough and pay attention to detail, or analytical thinking skills.</p>
@@ -150,6 +258,7 @@
                 <p class="govuk-body">To find out job roles you might be suited to in engineering and maintenance, answer more questions.</p>
                 <button type="submit" class="govuk-button">See job category</button>
               </div>
+        </div>
       </div>
 
 
