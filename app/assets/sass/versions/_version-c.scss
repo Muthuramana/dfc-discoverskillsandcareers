@@ -82,11 +82,57 @@
         font-size: govuk-px-to-rem(16);
     }
 
-    .hours span {
-        font-size: govuk-px-to-rem(16);
+    .result-meta {
+        .level-min {
+            width: 20%;
+        }
     }
 
-    .work-pattern span {
-        font-size: govuk-px-to-rem(16);
+    .result-meta {
+        .hours span {
+            font-size: govuk-px-to-rem(16);
+            }
+
+        .work-pattern span {
+            font-size: govuk-px-to-rem(16);
+            }
+    }
+
+    .result-card {
+        padding: 15px;
+        margin-bottom: govuk-px-to-rem(30);
+    }
+
+    .result-actions, .govuk-button {
+        margin-bottom: govuk-px-to-rem(0);
+    }
+
+    .more-info {
+        margin-bottom: 20px;
+    }
+
+    .subtext {
+        color:  $govuk-secondary-text-colour;
+    }
+    
+    .long-results-info {
+        margin-top: govuk-px-to-rem(30);
+        .govuk-body {
+            margin-bottom: 7px;
+        }
+        .profile-link {
+            margin-top: 15px;
+        }
+    }
+
+    .long-v2-result {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: solid 1px;
+        border-bottom-color: grey;
+    }
+
+    .govuk-inset-text :first-child {
+        padding-top: 0px;
     }
 }
