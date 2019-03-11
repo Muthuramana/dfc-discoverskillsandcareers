@@ -1,7 +1,8 @@
 {% extends "layout-masthead.html" %}
 
 {% set bodyClasses = "version-c" %}
-{% set thisPage = "short-results" %} {# Required. Used for automatically posting back to self #}
+{% set qNum = data['question-num'] | parseQuestionNumber %}
+{% set thisPage = "filter-questions-q0" %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "Your results" %} {# Required. Used for html title and in-page title or masthead title #}
 {% set pageIntro = "10 results" %} {# Optional. Used in masthead. #}
@@ -73,7 +74,7 @@
 {% block content %}
 
   <form action="{{ nextPage or thisPage }}" method="POST" role="form">
-
+    <input type="hidden" id="question-num" name="filter-questions" value="1">
     <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">

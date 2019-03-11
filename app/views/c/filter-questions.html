@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% set bodyClasses = "version-c" %}
-{% set qNum = data['question-num'] | int %}
-{% set thisPage = "short-assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
+{% set qNum = data['question-num'] | parseQuestionNumber %}
+{% set thisPage = "filter-questions-q" + qNum %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "See job categories" %} {# Required. Used for html title and in-page title or masthead title #}
-{% set questionData = data['assessment-data']['short-questions'][qNum - 1] %} {# Required. Used for question content #}
+{% set questionData = data['assessment-data']['filter-questions'][qNum - 1] %} {# Required. Used for question content #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
 
@@ -58,7 +58,7 @@
             <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                 <h1 class="govuk-fieldset__heading">
-                  This is a filter question
+                  {{ questionData['question'] }}
                 </h1>
               </legend>
               <span id="changed-name-hint" class="govuk-hint">
@@ -66,13 +66,13 @@
               </span>
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="changed-name-1" name="changed-name" type="radio" value="yes">
+                  <input class="govuk-radios__input" id="changed-name-1" name="answer" type="radio" value="yes">
                   <label class="govuk-label govuk-radios__label" for="changed-name-1">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                  <input class="govuk-radios__input" id="changed-name-2" name="answer" type="radio" value="no">
                   <label class="govuk-label govuk-radios__label" for="changed-name-2">
                     No
                   </label>
@@ -83,7 +83,6 @@
 
         <div class="app-controls next-button govuk-grid-column-full govuk-form-group">
           <button type="submit" class="govuk-button">Next</button>
-
         </div>
       </div>
 

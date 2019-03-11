@@ -1,4 +1,27 @@
 {
+  "filter-questions": [
+    {
+      "question": "Filter question 1",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "Filter question 2",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    },
+    {
+      "question": "Filter question 3",
+      "errors": {
+        "missing": "Select one of the options",
+        "invalid": ""
+      }
+    }
+  ],
   "short-questions": [
     {
       "question": "I am comfortable telling people what they need to do",
