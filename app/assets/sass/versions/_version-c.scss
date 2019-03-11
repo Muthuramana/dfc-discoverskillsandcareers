@@ -23,9 +23,15 @@
     .sidebar.save-progress-panel {
         padding-left: 10px;
     }
-    .govuk-panel--confirmation .progress-status-panel .progress-bar {
-        background-color: white;
+    .govuk-panel--confirmation {
+        .progress-status-panel .progress-number {
+            color: white;
+        }
+        .progress-status-panel .progress-bar {
+            background-color: white;
+        }
     }
+
     .sidebar {
         .govuk-heading-m {
             padding-top: govuk-spacing(3);
@@ -41,7 +47,7 @@
         margin-top: govuk-px-to-rem(0);
     }
     .progress-status-panel .progress-number {
-        color: govuk-colour("white");
+        color: govuk-colour("green");
     }
     .result-panel {
         .govuk-heading-m {
@@ -117,6 +123,9 @@
     .salary-min,
     .salary-max {
         font-size: govuk-px-to-rem(16);
+        @include govuk-media-query($from: desktop) {
+            font-size: govuk-px-to-rem(19);
+        }
     }
 
     .result-card {
@@ -186,7 +195,7 @@
     }
 
     .app-controls {
-        text-align: left;
+        // text-align: left;
         padding: 0px;
       }
 
