@@ -20,13 +20,13 @@
 
 {% block content %}
 
-  <form action="{{ nextPage or thisPage }}" method="POST" role="form">
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form" class="govuk-!-margin-bottom-6">
 
     <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">
 
-        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
           {% include "blocks/assessment-progress-status.html" %}
           <h1 class="govuk-panel__title">{{ pageTitle }}</h1>
         </div>
