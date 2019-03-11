@@ -1,7 +1,8 @@
 {% extends "layout-masthead.html" %}
 
 {% set bodyClasses = "version-c" %}
-{% set thisPage = "landing" %} {# Required. Used for automatically posting back to self #}
+{% set qNum = data['question-num'] | parseQuestionNumber %}
+{% set thisPage = "short-assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "Discover your skills and careers" %} {# Required. Used for html title and in-page title or masthead title #}
 {% set pageIntro = "Take a quick assessment to see job categories you might be suited to. Or take a longer assessment to see specific job roles." %} {# Optional. Used in masthead. #}
@@ -67,7 +68,7 @@
             </div>
             <p class="govuk-body">
               <input type="hidden" id="question-num" name="start-assessment" value="1">
-              <button type="submit" class="govuk-button govuk-button--start" formaction="short-assessment">Start assessment</button>
+              <button type="submit" class="govuk-button govuk-button--start">Start assessment</button>
             </p>
           </div>
         </div>

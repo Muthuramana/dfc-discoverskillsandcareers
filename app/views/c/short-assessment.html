@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set bodyClasses = "version-c" %}
-{% set qNum = data['question-num'] | int %}
+{% set qNum = data['question-num'] | parseQuestionNumber %}
 {% set thisPage = "short-assessment-q" + qNum %} {# Required. Used for automatically posting back to self #}
 {% set nextPage = "" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "See job categories" %} {# Required. Used for html title and in-page title or masthead title #}

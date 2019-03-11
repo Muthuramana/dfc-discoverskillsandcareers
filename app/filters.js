@@ -11,6 +11,10 @@ module.exports = function (env) {
     return percent ? percent.toString() : '0'
   }
 
+  filters.parseQuestionNumber = function(qNum) {
+    return qNum ? parseInt(qNum, 10) : 1
+  }
+
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
     @example:
