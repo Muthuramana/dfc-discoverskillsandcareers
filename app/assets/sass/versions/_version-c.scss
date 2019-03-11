@@ -42,7 +42,7 @@
         margin-top: govuk-px-to-rem(0);
     }
     .progress-status-panel .progress-number {
-        color: white;
+        color: govuk-colour("green");
     }
     .result-panel {
         .govuk-heading-m {
@@ -154,6 +154,19 @@
 
     .long-results-category {
         margin-top: 20px;
-        margin-bottom: 100px;
+        margin-bottom: 40px;
     }
+
+    .govuk-main-wrapper {
+        padding-top: 20px;
+        .govuk-heading-l {
+            padding-bottom: 20px;
+        }
+    }
+
+    .app-controls {
+        text-align: left;
+        padding: 0px;
+      }
+    
 }
