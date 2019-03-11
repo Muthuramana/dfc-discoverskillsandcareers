@@ -21,13 +21,13 @@
 
 {% block content %}
 
-  <form action="{{ nextPage or thisPage }}" method="POST" role="form">
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form" class="govuk-!-margin-bottom-6">
 
     <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">
 
-        {% include "blocks/progress-reference-number.html" %}
+        {% include "blocks/progress-reference-number-alt.html" %}
 
         <h1 class="govuk-heading-m">{{ pageTitle }}</h1>
         <p class="govuk-body">The code above is your unique reference number. You can use this to:</p>
@@ -37,12 +37,31 @@
         </ul>
         <p class="govuk-body">Please write this code down and store it somewhere safe.</p>
 
-        <button type="submit" class="govuk-button" name="answer" value="continue">Continue your assessment</button>
+        <button type="submit" class="govuk-button" name="answer" value="continue">Continue</button>
 
       </div>
 
     </div>
 
+  </form>
+
+  <form class="govuk-!-margin-bottom-0">
+    <h2 class="govuk-heading-m">Send to your email</h2>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {{ govukInput({
+          label: {
+            text: "Your email address"
+          },
+          id: "event-name",
+          name: "event-name",
+          classes: "govuk-!-width-two-thirds"
+        }) }}
+        {{ govukButton({
+          text: "Send email"
+        }) }}
+      </div>
+    </div>
   </form>
 
 {% endblock %}
