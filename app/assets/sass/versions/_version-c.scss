@@ -64,8 +64,13 @@
     }
 
     .result-content, .result-detail {
+        .embedded-fa-icon {
+            width: 20px;
+        }
         .embedded-fa-icon svg {
-        height: 2.25rem;
+        // height: 2.25rem;
+        // width: 40px;
+        height: auto;
         color: #217c74;
         }
     }
@@ -82,20 +87,37 @@
         font-size: govuk-px-to-rem(16);
     }
 
+
     .result-meta {
+        width: calc(100% - 40px);
+
         .level-min {
             width: 20%;
         }
-    }
 
-    .result-meta {
+        .hours {
+            font-size: govuk-px-to-rem(16);
+        }
+
         .hours span {
             font-size: govuk-px-to-rem(16);
-            }
+            display: inline;
+        }
+
+        .work-pattern {
+            font-size: govuk-px-to-rem(16);
+        }
 
         .work-pattern span {
             font-size: govuk-px-to-rem(16);
-            }
+            display: inline;
+        }
+    }
+
+
+    .salary-min,
+    .salary-max {
+        font-size: govuk-px-to-rem(16);
     }
 
     .result-card {
@@ -114,7 +136,7 @@
     .subtext {
         color:  $govuk-secondary-text-colour;
     }
-    
+
     .long-results-info {
         margin-top: govuk-px-to-rem(30);
         .govuk-body {
@@ -139,7 +161,7 @@
     .govuk-heading-m.job-category-title {
         margin-bottom: 5px;
         }
-    
+
     a.back-to-top-link {
         display: block;
         margin-top: 20px;
@@ -168,5 +190,5 @@
         text-align: left;
         padding: 0px;
       }
-    
+
 }

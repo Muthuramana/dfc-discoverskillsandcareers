@@ -29,7 +29,7 @@
 
         <div class="govuk-grid-column-two-thirds">
 
-          <h1 class="govuk-heading-xl">Your results</h1>
+          <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
 
         </div>
 
@@ -76,8 +76,31 @@
 
       <div class="govuk-grid-row">
 
+        <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-s">Sort by</h2>
+            {% from "select/macro.njk" import govukSelect %}
+              {{ govukSelect({
+                id: "sort",
+                name: "sort",
+                label: {
+                  text: "Sort your results"
+                },
+                items: [
+                  {
+                    value: "Salary",
+                    text: "Salary lowest to highest"
+                  },
+                  {
+                    value: "updated",
+                    text: "Alphabetical order",
+                    selected: true
+                  }
+                ]
+              }) }}
+          </div>
+
         <div class="govuk-grid-column-two-thirds">
-            <h2 class="govuk-heading-l">Job categories you might be suited to</h2>
+            <h2 class="govuk-heading-l">Your results</h2>
 
             {% from "checkboxes/macro.njk" import govukCheckboxes %}
               {{ govukCheckboxes({
@@ -109,46 +132,13 @@
                 ]
               }) }}
 
-        </div>
-
-      </div>
-
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <h1 class="govuk-heading-m">Administration</h1>
-          <p class="govuk-body">To do administration jobs, you might need administration skills, the ability to work well with others, or customer service skills.</p>
-          <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/administration>See all administration roles</a></p>
+            <h3 class="govuk-heading-m">Administration</h3>
+              <div class="result-content">
+                <p class="govuk-body">To do administration jobs, you might need administration skills, the ability to work well with others, or customer service skills.</p>
+                <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/administration>See all administration roles</a></p>
+          </div>
 
         </div>
-
-        <div class="govuk-grid-column-one-third">
-          <h2 class="govuk-heading-m">Sort by</h3>
-            <h2 class="govuk-heading-s"></h2>
-            {% from "select/macro.njk" import govukSelect %}
-              {{ govukSelect({
-                id: "sort",
-                name: "sort",
-                label: {
-                  text: "Sort your results"
-                },
-                items: [
-                  {
-                    value: "Salary",
-                    text: "Salary lowest to highest"
-                  },
-                  {
-                    value: "updated",
-                    text: "Alphabetical order",
-                    selected: true
-                  }
-                ]
-              }) }}
-        </div>
-      </div>
-        </div>
-    </div>
-
-      <div class="govuk-grid-row">
 
         <div class="govuk-grid-column-one-third">
           <div class="result-card">
@@ -247,8 +237,8 @@
               <div class="result-actions">
                 <button type="submit" class="govuk-button">View job role</button>
               </div>
+            </div>
           </div>
-        </div>
 
         <div class="govuk-grid-column-one-third">
           <div class="result-card">
@@ -298,7 +288,7 @@
                 <button type="submit" class="govuk-button">View job role</button>
               </div>
           </div>
-        </div>
+          </div>
 
       </div>
 
@@ -307,7 +297,7 @@
         {% include "blocks/back-to-top-link.html" %}
 
 
-      </div>
+    </div>
 
   </form>
 
