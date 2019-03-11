@@ -475,16 +475,19 @@ ul.assessment-results {
 
 }
 
+.salary-min,
+.salary-max {
+  font-size: govuk-px-to-rem(19);
+}
+
 .salary-min {
   margin-bottom: govuk-px-to-rem(8);
-  font-size: govuk-px-to-rem(19);
 }
 
 .salary-max {
   float: right;
   margin-bottom: govuk-px-to-rem(8);
   text-align: right;
-  font-size: govuk-px-to-rem(19);
 }
 
 p.level-max {

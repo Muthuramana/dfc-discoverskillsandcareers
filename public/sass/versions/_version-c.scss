@@ -42,7 +42,7 @@
         margin-top: govuk-px-to-rem(0);
     }
     .progress-status-panel .progress-number {
-        color: white;
+        color: govuk-colour("white");
     }
     .result-panel {
         .govuk-heading-m {
@@ -64,8 +64,13 @@
     }
 
     .result-content, .result-detail {
+        .embedded-fa-icon {
+            width: 20px;
+        }
         .embedded-fa-icon svg {
-        height: 2.25rem;
+        // height: 2.25rem;
+        // width: 40px;
+        height: auto;
         color: #217c74;
         }
     }
@@ -82,11 +87,108 @@
         font-size: govuk-px-to-rem(16);
     }
 
-    .hours span {
+
+    .result-meta {
+        width: calc(100% - 40px);
+
+        .level-min {
+            width: 20%;
+        }
+
+        .hours {
+            font-size: govuk-px-to-rem(16);
+        }
+
+        .hours span {
+            font-size: govuk-px-to-rem(16);
+            display: inline;
+        }
+
+        .work-pattern {
+            font-size: govuk-px-to-rem(16);
+        }
+
+        .work-pattern span {
+            font-size: govuk-px-to-rem(16);
+            display: inline;
+        }
+    }
+
+
+    .salary-min,
+    .salary-max {
         font-size: govuk-px-to-rem(16);
     }
 
-    .work-pattern span {
-        font-size: govuk-px-to-rem(16);
+    .result-card {
+        padding: 15px;
+        margin-bottom: govuk-px-to-rem(30);
     }
+
+    .result-actions, .govuk-button {
+        margin-bottom: govuk-px-to-rem(0);
+    }
+
+    .more-info {
+        margin-bottom: 20px;
+    }
+
+    .subtext {
+        color:  $govuk-secondary-text-colour;
+    }
+
+    .long-results-info {
+        margin-top: govuk-px-to-rem(30);
+        .govuk-body {
+            margin-bottom: 7px;
+        }
+        .profile-link {
+            margin-top: 15px;
+        }
+    }
+
+    .long-v2-result {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: solid 1px;
+        border-bottom-color: grey;
+    }
+
+    .govuk-inset-text :first-child {
+        padding-top: 0px;
+    }
+
+    .govuk-heading-m.job-category-title {
+        margin-bottom: 5px;
+        }
+
+    a.back-to-top-link {
+        display: block;
+        margin-top: 20px;
+        svg.icon {
+            display: inline-block;
+            width: .8em;
+            height: 1em;
+            margin-right: govuk-px-to-rem(10);
+            vertical-align: middle;
+        }
+    }
+
+    .long-results-category {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .govuk-main-wrapper {
+        padding-top: 20px;
+        .govuk-heading-l {
+            padding-bottom: 20px;
+        }
+    }
+
+    .app-controls {
+        text-align: left;
+        padding: 0px;
+      }
+
 }
