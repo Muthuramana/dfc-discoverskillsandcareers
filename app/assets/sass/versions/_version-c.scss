@@ -102,20 +102,26 @@
 
         .hours {
             font-size: govuk-px-to-rem(16);
+            @include govuk-media-query($from: desktop) {
+                font-size: govuk-px-to-rem(19);
+            }
         }
 
         .hours span {
             font-size: govuk-px-to-rem(16);
-            display: inline;
+            display: block;
         }
 
         .work-pattern {
             font-size: govuk-px-to-rem(16);
+            @include govuk-media-query($from: desktop) {
+                font-size: govuk-px-to-rem(19);
+            }
         }
 
         .work-pattern span {
             font-size: govuk-px-to-rem(16);
-            display: inline;
+            display: block;
         }
     }
 

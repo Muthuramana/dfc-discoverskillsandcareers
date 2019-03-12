@@ -1,21 +1,21 @@
 {
   "filter-questions": [
     {
-      "question": "Filter question 1",
+      "question": "Would you prefer a job where you deal with numbers and data?",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
       }
     },
     {
-      "question": "Filter question 2",
+      "question": "Would you prefer a job where you focus on accurate details?",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
       }
     },
     {
-      "question": "Filter question 3",
+      "question": "Would you prefer a job where you help members of the public on a regular basis?",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
