@@ -59,22 +59,22 @@ router.post(/([a|b|c])\/(filter-questions-q[0-9]*)/, function (req, res) {
   // Process the question number
   var qUrl = req.params[1];
   var qNum = Number(qUrl.substr(18));
+  console.log(qNum)
 
   // Calculate completion status
   var percComplete = 0;
 
-
-  if (qNum === 1 && req.session.data['start-assessment']) {
+  if (qNum === 1 && req.session.data['filter-questions']) {
+    console.log('a')
 
     decCompleteExact = 0;
 
   } else if (qNum === numQuestions) {
-
-    // decCompleteExact = 1; // Actually, don't ever show 100% during the assessment
+    console.log('b')
     decCompleteExact = 0.99;
 
   } else if (qNum === 999) {
-
+    console.log('c')
     if (!req.session.data['reference-number']) {
 
       req.session.data['error-missing-reference-number'] = true;
@@ -88,16 +88,15 @@ router.post(/([a|b|c])\/(filter-questions-q[0-9]*)/, function (req, res) {
     }
 
   } else if (!req.session.data['answer']) {
-
+    console.log('d')
     decCompleteExact = 1;
 
   } else {
-
+    console.log('e')
     decCompleteExact = qNum / numQuestions;
 
   }
 
-  // decCompleteRounded = Math.round((decCompleteExact) * 10) / 10; // 10% stages method
   decCompleteRounded = Math.round((decCompleteExact + 0.00001) * 100) / 100;
   percComplete = Math.round(decCompleteRounded * 100);
 
@@ -107,10 +106,12 @@ router.post(/([a|b|c])\/(filter-questions-q[0-9]*)/, function (req, res) {
     'percentage': percComplete
   }
 
-  // Process outcome
-  if (req.session.data['start-assessment']) {
+  console.log(req.session)
 
-    delete req.session.data['start-assessment'];
+  // Process outcome
+  if (req.session.data['filter-questions']) {
+
+    delete req.session.data['filter-questions'];
     req.session.data['question-num'] = qNum;
 
   } else if (!req.session.data['answer']) {

@@ -23,7 +23,7 @@
 {% block content %}
 
   <form action="{{ nextPage or thisPage }}" method="POST" role="form">
-
+    {# <input type="hidden" id="question-num" name="start-assessment" value="1"> #}
     <div class="govuk-grid-row">
 
       {% if data['error-missing'] %}
