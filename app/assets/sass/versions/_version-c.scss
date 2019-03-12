@@ -66,18 +66,12 @@
             background-color: white;
         }
     }
+    .page-masthead {
+        margin-bottom: 0;
+    }
 
     .result-panel.first {
         padding-top: 10px;
-    }
-
-    .page-masthead {
-        padding-bottom: 0px;
-    }
-    .page-masthead.govuk-full-width-container {
-        p.govuk-body-l {
-        margin-bottom: govuk-px-to-rem(50);
-        }
     }
 
     .result-content, .result-detail {
