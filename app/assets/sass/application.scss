@@ -277,24 +277,15 @@ header.govuk-header {
 fieldset.app-question {
   @include govuk-responsive-margin(7, "bottom");
 
-  div.question {
-    height: 100%;
-
-    margin: 0;
-    top: 50%;
+  @include govuk-media-query($from: desktop) {
+    clear: both;
     position: relative;
+    display: table;
+    width: 100%;
+
     legend {
       margin: 0;
     }
-  }
-
-  div.answer {
-
-    border-left: 1px solid govuk-colour("black");
-    margin-bottom: 0;
-
-    &.govuk-form-group--error { border-color: $govuk-error-colour; }
-
     .govuk-radios {
 
       .govuk-radios__label {
@@ -328,9 +319,27 @@ fieldset.app-question {
         }
 
       }
-
     }
 
+    .question,
+    .answer {
+      display: table-cell;
+      vertical-align: middle;
+      position: relative;
+      height: 156px;
+      float: none;
+    }
+
+    .question {
+      width: 40%;
+    }
+
+    .answer {
+      width: 60%;
+      border-left: 1px solid govuk-colour("black");
+      margin-bottom: 0;
+      &.govuk-form-group--error { border-color: $govuk-error-colour; }
+    }
   }
 
   div.next-button {
