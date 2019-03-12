@@ -92,6 +92,12 @@
         & > * {
             // flex: 0 1 33%;
             margin-bottom: 30px;
+            display: none;
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+                display: block;
+            }
         }
     }
 
@@ -99,6 +105,8 @@
         background-color: govuk-colour("grey-4");
         height: 100%;
         box-sizing: border-box;
+
+
 
 
     }

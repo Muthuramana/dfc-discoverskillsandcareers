@@ -552,6 +552,11 @@
         </div>
 
       </div>
+
+      <div class="govuk-body" id="showResults">
+        <a class="button-as-link" onClick="showResults()">Show 6 more results</a>
+      </div>
+
       <div class="govuk-row">
         <div class="govuk-grid-column-two-third">
           <div class="long-results-category">
@@ -573,9 +578,6 @@
                 </div>
         </div>
 
-
-
-
       <h3 class="govuk-heading-m">See 7 other job categories you are suited to</h3>
       <p class="govuk-body"><a href="#">See matches</a></p>
       {% include "blocks/back-to-top-link.html" %}
@@ -583,5 +585,17 @@
     </div>
 
   </form>
+
+  <script>
+    function showResults() {
+      var cards = document.getElementsByClassName('result-cards')[0].getElementsByClassName('govuk-grid-column-one-third');
+      cards = Array.prototype.slice.call( cards )
+      for (var i = 0; i < cards.length; i++) {
+          cards[i].style.display = 'block';
+      }
+      document.getElementById('showResults').style.display = 'none';
+      return false;
+    }
+  </script>
 
 {% endblock %}
