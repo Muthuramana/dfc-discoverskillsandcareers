@@ -94,14 +94,14 @@
       }
     },
     {
-      "question": "I enjoy recommending things to other people",
+      "question": "I like to persuade others",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
       }
     },
     {
-      "question": "I like to keep to myself",
+      "question": "I am comfortable negotiating with others",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -178,14 +178,14 @@
       }
     },
     {
-      "question": "I like working with facts and figures",
+      "question": "I like working with facts",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
       }
     },
     {
-      "question": "I find diagrams confusing",
+      "question": "I like working with numbers",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -213,7 +213,7 @@
       }
     },
     {
-      "question": "I like to use my imagination",
+      "question": "I like to use my imagination to create new things",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""
@@ -269,7 +269,7 @@
       }
     },
     {
-      "question": "I like to have something to show for my work",
+      "question": "I like to have something physical to show for my work",
       "errors": {
         "missing": "Select one of the options",
         "invalid": ""

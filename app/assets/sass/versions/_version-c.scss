@@ -55,10 +55,12 @@
           padding: govuk-px-to-rem(0);
           background-color: white;
         }
-        .result-content {
+        .result-content.short {
             padding: 0;
             padding-top: govuk-px-to-rem(20);
-          background-color: white;
+            margin-bottom: govuk-px-to-rem(20);
+            background-color: white;
+            border-bottom: 
         }
     }
 
@@ -201,7 +203,7 @@
     }
 
     .app-controls {
-        // text-align: left;
+        text-align: left;
         padding: 0px;
       }
 
@@ -228,4 +230,9 @@
               margin-top: -15px;
           }
       }
+
+    .email {
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
 }
