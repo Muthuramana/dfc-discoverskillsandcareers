@@ -85,9 +85,30 @@
         color: #217c74;
         }
     }
+    .result-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        & > * {
+            // flex: 0 1 33%;
+            margin-bottom: 30px;
+            display: none;
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+                display: block;
+            }
+        }
+    }
 
     .result-card {
         background-color: govuk-colour("grey-4");
+        height: 100%;
+        box-sizing: border-box;
+
+
+
+
     }
 
     .result-actions {
