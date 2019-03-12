@@ -49,20 +49,31 @@
     .progress-status-panel .progress-number {
         color: govuk-colour("green");
     }
+
     .result-panel {
+        border-bottom: 2px solid govuk-colour("grey-2");
+        padding-top: 30px;
         .govuk-heading-m {
           margin-bottom: 0;
           padding: govuk-px-to-rem(0);
           background-color: white;
         }
+
         .result-content.short {
             padding: 0;
-            padding-top: govuk-px-to-rem(20);
-            margin-bottom: govuk-px-to-rem(20);
+            padding-top: govuk-px-to-rem(10);
+            margin-bottom: govuk-px-to-rem(0);
             background-color: white;
         }
     }
 
+    .result-panel.first {
+        padding-top: 10px;
+    }
+
+    .page-masthead {
+        padding-bottom: 0px;
+    }
     .page-masthead.govuk-full-width-container {
         p.govuk-body-l {
         margin-bottom: govuk-px-to-rem(50);
@@ -150,6 +161,7 @@
 
     .subtext {
         color:  $govuk-secondary-text-colour;
+        margin-top: -15px;
     }
 
     .long-results-info {
@@ -197,7 +209,6 @@
     .govuk-main-wrapper {
         padding-top: 20px;
         .govuk-heading-l {
-            padding-bottom: 20px;
         }
     }
 
@@ -205,6 +216,14 @@
         text-align: left;
         padding: 0px;
       }
+
+    .app-controls.next-button {
+        text-align: right;
+        .govuk-button {
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+    }
 
       .govuk-grid-row.landing {
           margin-top: govuk-spacing(5);
@@ -225,13 +244,20 @@
 
       .result-intro {
           margin-bottom: govuk-spacing(7);
-          .subtext {
-              margin-top: -15px;
-          }
       }
 
     .email {
         margin-top: 20px;
         margin-bottom: 50px;
+    }
+
+    .govuk-heading-m.other-categories {
+        margin-top: 40px;
+    }
+
+    .sidebar.save-progress-panel {
+        .govuk-body {
+            margin-bottom: 10px;
+        }
     }
 }

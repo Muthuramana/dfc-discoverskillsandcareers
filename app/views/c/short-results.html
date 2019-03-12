@@ -31,7 +31,7 @@
         <div class="govuk-grid-column-two-thirds">
 
           <h1 class="govuk-heading-xl">Your results</h1>
-          <p class="govuk-body-l">{{ pageIntro }}</p>
+          <p class="govuk-body-l"></p>
 
         </div>
 
@@ -79,11 +79,12 @@
 
       <div class="govuk-grid-column-two-thirds">
 
-        <h2 class="govuk-heading-l">Your results</h2>
+        <h2 class="govuk-heading-l">Job categories you might be suited to</h2>
+          <p class="govuk-body subtext">You have 10 results</p>
 
         <ul class="assessment-results job-categories">
 
-          <li class="result-panel">
+          <li class="result-panel first">
             <h3 class="govuk-heading-m">Administration</h3>
             <div class="result-content short">
               <p class="govuk-body">To do administration jobs, you might need administration skills, the ability to work well with others, or customer service skills.</p>
@@ -115,7 +116,7 @@
 
         </ul>
 
-        <h3 class="govuk-heading-m">See 7 other job categories you are suited to</h3>
+        <h3 class="govuk-heading-m other-categories">See 7 other job categories you are suited to</h3>
         <p class="govuk-body"><a href="#">See matches</a></p>
         {% include "blocks/back-to-top-link.html" %}
 
