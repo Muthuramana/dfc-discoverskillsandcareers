@@ -81,7 +81,7 @@
         <h2 class="govuk-heading-l">Job categories you might be suited to</h2>
           <p class="govuk-body subtext">You have 10 results</p>
 
-        <ul class="assessment-results job-categories">
+        <ul class="assessment-results job-categories" id="job-categories">
 
           <li class="result-panel first">
             <h3 class="govuk-heading-m">Administration</h3>
@@ -112,11 +112,67 @@
               <button type="submit" class="govuk-button">Answer more questions</button>
             </div>
           </li>
+          <li class="result-panel" style="display: none;">
+            <h3 class="govuk-heading-m">Social care</h3>
+            <div class="result-content short">
+              <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/social-care>See all social care roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in social care, answer more questions.</p>
+              <button type="submit" class="govuk-button">Answer more questions</button>
+            </div>
+          </li>
+          <li class="result-panel" style="display: none;">
+            <h3 class="govuk-heading-m">Social care</h3>
+            <div class="result-content short">
+              <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/social-care>See all social care roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in social care, answer more questions.</p>
+              <button type="submit" class="govuk-button">Answer more questions</button>
+            </div>
+          </li>
+          <li class="result-panel" style="display: none;">
+            <h3 class="govuk-heading-m">Social care</h3>
+            <div class="result-content short">
+              <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/social-care>See all social care roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in social care, answer more questions.</p>
+              <button type="submit" class="govuk-button">Answer more questions</button>
+            </div>
+          </li>
+          <li class="result-panel" style="display: none;">
+            <h3 class="govuk-heading-m">Social care</h3>
+            <div class="result-content short">
+              <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/social-care>See all social care roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in social care, answer more questions.</p>
+              <button type="submit" class="govuk-button">Answer more questions</button>
+            </div>
+          </li>
+          <li class="result-panel" style="display: none;">
+            <h3 class="govuk-heading-m">Social care</h3>
+            <div class="result-content short">
+              <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/social-care>See all social care roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in social care, answer more questions.</p>
+              <button type="submit" class="govuk-button">Answer more questions</button>
+            </div>
+          </li>
+          <li class="result-panel" style="display: none;">
+            <h3 class="govuk-heading-m">Social care</h3>
+            <div class="result-content short">
+              <p class="govuk-body">To do social care jobs, you might need sensitivity and understanding patience and the ability to remain calm in stressful situations, the ability to work well with others, or excellent verbal communication skills.</p>
+              <p class="govuk-body"><a href=https://nationalcareers.service.gov.uk/job-categories/social-care>See all social care roles</a></p>
+              <p class="govuk-body">To find out job roles you might be suited to in social care, answer more questions.</p>
+              <button type="submit" class="govuk-button">Answer more questions</button>
+            </div>
+          </li>
 
         </ul>
 
-        <h3 class="govuk-heading-m other-categories">See 7 other job categories you are suited to</h3>
-        <p class="govuk-body"><a href="#">See matches</a></p>
+        <div id="showResults">
+          <h3 class="govuk-heading-m other-categories">See 7 other job categories you are suited to</h3>
+          <p class="govuk-body"><a href="#job-categories" onClick="showResults()">See matches</a></p>
+        </div>
         {% include "blocks/back-to-top-link.html" %}
 
       </div>
@@ -126,5 +182,17 @@
     </div>
 
   </form>
+
+  <script>
+    function showResults() {
+      var cards = document.getElementsByClassName('result-panel');
+      cards = Array.prototype.slice.call( cards )
+      for (var i = 0; i < cards.length; i++) {
+          cards[i].style.display = 'block';
+      }
+      document.getElementById('showResults').style.display = 'none';
+      return false;
+    }
+  </script>
 
 {% endblock %}
