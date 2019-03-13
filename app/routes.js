@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
+var NotifyClient = require('notifications-node-client').NotifyClient,
+    notify = new NotifyClient(process.env.NOTIFYAPIKEY);
+
 // Utilities
 // ---------
 
@@ -441,5 +444,25 @@ router.post(/([a|b|c])\/(save-progress)/, function (req, res) {
   res.redirect('save-progress');
 
 })
+
+router.post(/([a|b|c])\/(notify)/, function (req, res) {
+
+  notify.sendEmail(
+    '5d6a3342-d226-4770-979b-97fd3f6f160d',
+    req.body.address,
+    {
+      personalisation: {
+        'first_name': 'Test Recipient',
+        'application_number': '300241'
+      },
+      reference: ''
+    }
+  )
+  // .then(response => console.log(response))
+  .catch(err => console.error(err))
+
+  res.redirect('notify');
+
+});
 
 module.exports = router

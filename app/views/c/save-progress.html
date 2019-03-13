@@ -3,7 +3,7 @@
 {% set bodyClasses = "version-c" %}
 {% set qNum = data['question-num'] | int %}
 {% set thisPage = "save-progress" %} {# Required. Used for automatically posting back to self #}
-{% set nextPage = data['referrer'] + (qNum - 1) %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set nextPage = "short-assessment-q" + (qNum - 1) %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "What to do" %} {# Required. Used for html title and in-page title or masthead title #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
@@ -12,10 +12,8 @@
 
   {{ govukBreadcrumbs({
     items: [
-      { text: "Home: Discover your skills and careers", href: "landing" },
-      { text: "Assessment", href: "short-assessment" },
-      { text: "Results", href: "long-results-new-1" },
-      { text: "Save progress" }
+      { text: "Discover your skills and careers", href: "landing" },
+      { text: "See job categories" }
     ]
   }) }}
 
@@ -31,7 +29,7 @@
 
         {% include "blocks/progress-reference-number-alt.html" %}
 
-        <h1 class="govuk-heading-m">What to do</h1>
+        <h1 class="govuk-heading-m">{{ pageTitle }}</h1>
         <p class="govuk-body">The code above is your unique reference. You can use this to:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>return to the assessment and continue your progress</li>
@@ -39,7 +37,7 @@
         </ul>
         <p class="govuk-body">Please write this code down and store it somewhere safe.</p>
 
-        <button type="submit" class="govuk-button" name="answer" value="continue">Return to assessment</button>
+        <button type="submit" class="govuk-button" name="answer" value="continue">Continue</button>
 
       </div>
 
@@ -47,16 +45,16 @@
 
   </form>
 
-  <form class="govuk-!-margin-bottom-0">
+  <form action="notify" method="POST" role="form" class="govuk-!-margin-bottom-0">
+    <h2 class="govuk-heading-m">Send to your email</h2>
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds email">
-        <h2 class="govuk-heading-m">Send the reference to your email</h2>
+      <div class="govuk-grid-column-two-thirds">
         {{ govukInput({
           label: {
             text: "Your email address"
           },
-          id: "event-name",
-          name: "event-name",
+          id: "address",
+          name: "address",
           classes: "govuk-!-width-two-thirds"
         }) }}
         {{ govukButton({
