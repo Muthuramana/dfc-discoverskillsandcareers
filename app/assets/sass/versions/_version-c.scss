@@ -91,7 +91,6 @@
         flex-wrap: wrap;
         justify-content: space-between;
         & > * {
-            // flex: 0 1 33%;
             margin-bottom: 30px;
             display: none;
             &:nth-child(1),
@@ -111,10 +110,18 @@
         background-color: govuk-colour("grey-4");
         height: 100%;
         box-sizing: border-box;
+        position: relative;
+        padding: 15px;
+        padding-bottom: 100px;
+        margin-bottom: govuk-px-to-rem(30);
     }
 
     .result-actions {
         text-align: center;
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .level-min, .level-max{
@@ -164,8 +171,7 @@
     }
 
     .result-card {
-        padding: 15px;
-        margin-bottom: govuk-px-to-rem(30);
+
     }
 
     .result-actions, .govuk-button {
