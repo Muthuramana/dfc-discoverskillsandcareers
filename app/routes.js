@@ -449,21 +449,24 @@ router.post(/([a|b|c])\/(save-progress)/, function (req, res) {
 
 router.post(/([a|b|c])\/(notify)/, function (req, res) {
 
-  notify.sendEmail(
-    '5d6a3342-d226-4770-979b-97fd3f6f160d',
-    req.body.address,
-    {
-      personalisation: {
-        'first_name': 'Test Recipient',
-        'application_number': '300241'
-      },
-      reference: ''
-    }
-  )
-  // .then(response => console.log(response))
-  .catch(err => console.error(err))
+  if (notify) {
+    notify.sendEmail(
+      '5d6a3342-d226-4770-979b-97fd3f6f160d',
+      req.body.address,
+      {
+        personalisation: {
+          'first_name': 'Test Recipient',
+          'application_number': '300241'
+        },
+        reference: ''
+      }
+    )
+    // .then(response => console.log(response))
+    .catch(err => console.error(err))
 
-  res.redirect('notify');
+    res.redirect('notify');
+
+  }
 
 });
 
