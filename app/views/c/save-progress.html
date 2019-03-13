@@ -3,7 +3,7 @@
 {% set bodyClasses = "version-c" %}
 {% set qNum = data['question-num'] | int %}
 {% set thisPage = "save-progress" %} {# Required. Used for automatically posting back to self #}
-{% set nextPage = "short-assessment-q" + (qNum - 1) %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set nextPage = data['referrer'] + (qNum - 1) %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
 {% set pageTitle = "What to do" %} {# Required. Used for html title and in-page title or masthead title #}
 
 {% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}

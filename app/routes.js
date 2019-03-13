@@ -436,6 +436,7 @@ router.post(/([a|b|c])\/(save-progress)/, function (req, res) {
   var refDateText = d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() + ", " + d.getHours() + ":" + d.getMinutes();
 
   req.session.data['reference-date'] = refDateText;
+  req.session.data['referrer'] = req.get('Referrer').indexOf('filter-questions') == -1 ? 'short-assessment-q' : 'filter-questions-q';
 
   res.redirect('save-progress');
 
