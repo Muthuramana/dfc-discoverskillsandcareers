@@ -464,7 +464,7 @@ router.post(/([a|b|c])\/(notify)/, function (req, res) {
     // .then(response => console.log(response))
     .catch(err => console.error(err))
 
-    res.redirect('short-results');
+    res.redirect('notify');
 
   }
 
