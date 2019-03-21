@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% set bodyClasses = "version-c" %}
+{% set qNum = data['question-num'] | int %}
+{% set thisPage = "save-progress" %} {# Required. Used for automatically posting back to self #}
+{% set nextPage = "short-assessment-q" + (qNum - 1) %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set pageTitle = "What to do" %} {# Required. Used for html title and in-page title or masthead title #}
+
+{% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form" class="govuk-!-margin-bottom-6">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include "blocks/progress-reference-number-alt.html" %}
+
+        <h1 class="govuk-heading-m">{{ pageTitle }}</h1>
+        <p class="govuk-body">The code above is your unique reference. You can use this to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>return to the assessment and continue your progress</li>
+          <li>access your results after finishing the assessment</li>
+        </ul>
+        <p class="govuk-body">Please write this code down and store it somewhere safe.</p>
+
+        <button type="submit" class="govuk-button" name="answer" value="continue">Continue</button>
+
+      </div>
+
+    </div>
+
+  </form>
+
+  <form action="notify" method="POST" role="form" class="govuk-!-margin-bottom-0">
+    <h2 class="govuk-heading-m">Send to your email</h2>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {{ govukInput({
+          label: {
+            text: "Your email address"
+          },
+          id: "address",
+          name: "address",
+          classes: "govuk-!-width-two-thirds"
+        }) }}
+        {{ govukButton({
+          text: "Send email"
+        }) }}
+      </div>
+    </div>
+  </form>
+
+{% endblock %}

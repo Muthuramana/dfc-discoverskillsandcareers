@@ -32,7 +32,7 @@ router.get("/a", function (req, res) {
 })
 
 // Resume assessment -----------------------------------------------------------
-router.post(/([a|b|c])\/(resume-assessment)/, function (req, res) {
+router.post(/([a|b|c|d])\/(resume-assessment)/, function (req, res) {
 
   var qNum = Math.floor((Math.random() * 20) + 1); // Random number between 1 and 20
   var redirectUrl = 'short-assessment-q' + qNum;
@@ -46,7 +46,7 @@ router.post(/([a|b|c])\/(resume-assessment)/, function (req, res) {
 // Short assessment / questions ------------------------------------------------
 // One question route to rule them all!
 // Note: 999 generates a random qNum
-router.post(/([a|b|c])\/(filter-questions-q[0-9]*)/, function (req, res) {
+router.post(/([a|b|c|d])\/(filter-questions-q[0-9]*)/, function (req, res) {
 
   // Load the JSON data if not already in session
   if (!req.session.data['assessment-data']) {
@@ -168,7 +168,7 @@ router.post(/([a|b|c])\/(filter-questions-q[0-9]*)/, function (req, res) {
 // Short assessment / questions ------------------------------------------------
 // One question route to rule them all!
 // Note: 999 generates a random qNum
-router.post(/([a|b|c])\/(short-assessment-q[0-9]*)/, function (req, res) {
+router.post(/([a|b|c|d])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
   // Load the JSON data if not already in session
   if (!req.session.data['assessment-data']) {
@@ -295,7 +295,7 @@ router.post(/([a|b|c])\/(short-assessment-q[0-9]*)/, function (req, res) {
 
 // One question route to rule them all!
 // Note: 999 generates a random qNum
-router.post(/([a|b|c])\/(long-assessment-q[0-9]*)/, function (req, res) {
+router.post(/([a|b|c|d])\/(long-assessment-q[0-9]*)/, function (req, res) {
 
   // Load the JSON data if not already in session
   if (!req.session.data['assessment-data']) {
@@ -417,7 +417,7 @@ router.post(/([a|b|c])\/(long-assessment-q[0-9]*)/, function (req, res) {
 //})
 
 // Save progress ---------------------------------------------------------------
-router.post(/([a|b|c])\/(save-progress)/, function (req, res) {
+router.post(/([a|b|c|d])\/(save-progress)/, function (req, res) {
 
   var refDate = new Date();
 
@@ -447,7 +447,7 @@ router.post(/([a|b|c])\/(save-progress)/, function (req, res) {
 
 })
 
-router.post(/([a|b|c])\/(notify)/, function (req, res) {
+router.post(/([a|b|c|d])\/(notify)/, function (req, res) {
 
   if (notify) {
     notify.sendEmail(

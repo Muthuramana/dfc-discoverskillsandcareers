@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% set bodyClasses = "version-c" %}
+{% set qNum = data['question-num'] | int %}
+{% set emailAddress = data['address'] %}
+{% set thisPage = "save-progress" %} {# Required. Used for automatically posting back to self #}
+{% set nextPage = "short-results" %} {# Optional. Default "". Used to automatically override posting back to self e.g. if no validation or logic is required #}
+{% set pageTitle = "What to do" %} {# Required. Used for html title and in-page title or masthead title #}
+
+{% block pageTitle %} {{ pageTitle }} | National Careers Service {% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      { text: "Discover your skills and careers", href: "landing" },
+      { text: "See job categories" }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <form action="{{ nextPage or thisPage }}" method="POST" role="form" class="govuk-!-margin-bottom-6">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Check your email</h1>
+        <p class="govuk-body">An email has been sent to {{ emailAddress }}.</p>
+        <p class="govuk-body">Click the link in the email to return to your assessment.</p>
+
+        <button type="submit" class="govuk-button" name="answer" value="continue">Continue</button>
+
+      </div>
+
+    </div>
+
+  </form>
+
+  {% endblock %}
