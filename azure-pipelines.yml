@@ -82,24 +82,24 @@ jobs:
 
   - task: SonarCloudPrepare@1
     inputs:
-    SonarCloud: '$(SonarCloud)'
-    organization: 'muthuramana-github'
-    scannerMode: MSBuild
-    projectKey: '$(SonarCloudKey)'
-    projectName: 'mk-dfc-composite-shell'
+      SonarCloud: '$(SonarCloud)'
+      organization: 'muthuramana-github'
+      scannerMode: MSBuild
+      projectKey: ''
+      projectName: 'mk-dfc-discoverskillsandcareers'
 
   - task: DotNetCoreCLI@2
     displayName: 'dotnet build application'
     inputs:
-    command: build
-    projects: '**/*.sln'
-    arguments: '-o "$(build.artifactstagingdirectory)\Build\"'
+      command: build
+      projects: '**/*.sln'
+      arguments: '-o "$(build.artifactstagingdirectory)\Build\"'
 
   - task: DotNetCoreCLI@2
     displayName: 'dotnet test application'
     inputs:
-    command: test
-    projects: '**/*Test.csproj'
+      command: test
+      projects: '**/*Test.csproj'
 
   - task: SonarCloudAnalyze@1
   - task: SonarCloudPublish@1
