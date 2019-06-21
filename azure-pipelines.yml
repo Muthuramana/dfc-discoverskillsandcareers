@@ -5,11 +5,16 @@ resources:
 jobs:
 - job: BuildArtefacts
   displayName: 'Build Artefacts'
-  pool: 
-   name: Continuous Integration 02 - SSD - 160ACU
-   demands: 
-   - npm
-   - node.js
+  pool:
+    vmImage: 'VS2017-Win2016'
+    demands:
+      - DotNetFramework
+      - msbuild
+      - visualstudio
+      - vstest
+      - java 
+      - npm
+      - node.js
 
   steps:
 
@@ -74,6 +79,32 @@ jobs:
       codeCoverageTool: Cobertura
       summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
       reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
+
+  - task: SonarCloudPrepare@1
+    inputs:
+    SonarCloud: '$(SonarCloud)'
+    organization: 'muthuramana-github'
+    scannerMode: MSBuild
+    projectKey: '$(SonarCloudKey)'
+    projectName: 'mk-dfc-composite-shell'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet build application'
+    inputs:
+    command: build
+    projects: '**/*.sln'
+    arguments: '-o "$(build.artifactstagingdirectory)\Build\"'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet test application'
+    inputs:
+    command: test
+    projects: '**/*Test.csproj'
+
+  - task: SonarCloudAnalyze@1
+  - task: SonarCloudPublish@1
+    inputs:
+      pollingTimeoutSec: '300'
 
   - task: DotNetCoreCLI@2
     displayName: 'dotnet publish web app'
