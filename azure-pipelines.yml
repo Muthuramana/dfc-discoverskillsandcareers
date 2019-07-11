@@ -44,14 +44,6 @@ jobs:
     inputs:
      version: 2.2.102
 
-  - task: SonarCloudPrepare@1
-    inputs:
-      SonarCloud: '$(SonarCloud)'
-      organization: 'muthuramana-github'
-      scannerMode: MSBuild
-      projectKey: '$(SonarCloudProjectKey)'
-      projectName: 'mk-dfc-discoverskillsandcareers'
-
   - task: Npm@1
     displayName: 'npm install'
     inputs:
@@ -88,18 +80,31 @@ jobs:
   #     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
   #     reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
 
-  # - task: DotNetCoreCLI@2
-  #   displayName: 'dotnet build application'
-  #   inputs:
-  #     command: build
-  #     projects: '**/Dfc.DiscoverSkillsAndCareers.sln'
-  #     arguments: '-o "$(build.artifactstagingdirectory)\Build\"'
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: '$(SonarCloud)'
+      organization: 'muthuramana-github'
+      scannerMode: MSBuild
+      projectKey: '$(SonarCloudProjectKey)'
+      projectName: 'mk-dfc-discoverskillsandcareers'
 
-  # - task: DotNetCoreCLI@2
-  #   displayName: 'dotnet test application'
-  #   inputs:
-  #     command: test
-  #     projects: '**/*Test.csproj'
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet build application'
+    inputs:
+      command: build
+      projects: '**/Dfc.DiscoverSkillsAndCareers.sln'
+      arguments: '-o "$(build.artifactstagingdirectory)\Build\"'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet test application'
+    inputs:
+      command: test
+      projects: '**/*Test.csproj'
+
+  - task: SonarCloudAnalyze@1
+  - task: SonarCloudPublish@1
+    inputs:
+      pollingTimeoutSec: '300'
 
   - task: DotNetCoreCLI@2
     displayName: 'dotnet publish web app'
@@ -179,8 +184,3 @@ jobs:
      pathtoPublish: $(build.artifactstagingdirectory)/Data
      artifactName: data
      publishLocation: container
-
-  - task: SonarCloudAnalyze@1
-  - task: SonarCloudPublish@1
-    inputs:
-      pollingTimeoutSec: '300'
