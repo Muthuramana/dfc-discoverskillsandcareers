@@ -92,7 +92,7 @@ jobs:
     displayName: 'dotnet build application'
     inputs:
       command: build
-      projects: '**/*.sln'
+      projects: '**/Dfc.DiscoverSkillsAndCareers.sln'
       arguments: '-o "$(build.artifactstagingdirectory)\Build\"'
 
   - task: DotNetCoreCLI@2
