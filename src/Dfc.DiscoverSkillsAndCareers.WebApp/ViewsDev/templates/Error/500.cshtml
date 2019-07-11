@@ -1,5 +1,5 @@
 ﻿{% set pageName = 'home' %}
-{% set pageTitle = 'Discover your skills and careers' %}
+{% set pageTitle = 'Error' %}
 {% set pageGroup = '' %}
 
 {% extends "_base.njk" %}
@@ -7,7 +7,7 @@
 {% block pre %}
 @model Dfc.DiscoverSkillsAndCareers.WebApp.Models.IndexViewModel;
 @{
-    ViewData["Title"] = "Discover your skills and careers";
+    ViewData["Title"] = "Error";
     Layout = null;
 }
 {% endblock %}
@@ -17,21 +17,7 @@
 <main id="content" role="main">
 
     <div class="govuk-width-container">
-      {% include "_phasebanner.njk" %}
-    </div>
-
-    <div class="app-masthead">
-        <div class="govuk-width-container">
-
-            {% include "_breadcrumbpanel.njk" %}
-
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop">
-                    <h1 class="govuk-heading-xl app-masthead__title">Discover your skills and careers</h1>
-                </div>
-            </div>
-
-        </div>
+        {% include "_phasebanner.njk" %}
     </div>
 
     <div class="govuk-width-container">
@@ -39,6 +25,9 @@
             <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop">
                 <h1 class="govuk-heading-xl">Sorry, there is a problem with the service</h1>
                 <p class="govuk-body">Try again later.</p>
+                <p>
+                    <a href="https://nationalcareers.service.gov.uk/contact-us">Contact us</a> if you want to speak to one of our careers advisers.
+                </p>
             </div>
         </div>
     </div>

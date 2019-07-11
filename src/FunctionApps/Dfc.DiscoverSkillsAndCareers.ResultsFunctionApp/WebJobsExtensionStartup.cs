@@ -11,6 +11,7 @@ using Microsoft.Azure.WebJobs.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Search;
 using Microsoft.Extensions.Options;
@@ -18,6 +19,7 @@ using Microsoft.Extensions.Options;
 [assembly: WebJobsStartup(typeof(WebJobsExtensionStartup), "Web Jobs Extension Startup")]
 namespace Dfc.DiscoverSkillsAndCareers.ResultsFunctionApp.Ioc
 {
+    [ExcludeFromCodeCoverage]
     internal class WebJobsExtensionStartup : IWebJobsStartup
     {
         public IConfiguration Configuration { get; private set; }
@@ -53,11 +55,13 @@ namespace Dfc.DiscoverSkillsAndCareers.ResultsFunctionApp.Ioc
             services.AddScoped<ISwaggerDocumentGenerator, SwaggerDocumentGenerator>();
 
             services.AddTransient<IUserSessionRepository, UserSessionRepository>();
-            services.AddTransient<IQuestionRepository, LocalQuestionRepository>();
-            services.AddTransient<IContentRepository, ContentRepository>();
+
+            services.AddTransient<IQuestionRepository, QuestionRepository>();
             services.AddTransient<IJobProfileRepository, JobProfileRepository>();
-            services.AddTransient<IJobCategoryRepository, LocalJobCategoryRepository>();
-            services.AddTransient<IQuestionSetRepository, LocalQuestionSetRepository>();
+            
+            services.AddTransient<IJobCategoryRepository, JobCategoryRepository>();
+            services.AddTransient<IQuestionSetRepository, QuestionSetRepository>();
+            services.AddTransient<ISiteFinityHttpService, SiteFinityHttpService>();
         }
 
         private void ConfigureOptions(IServiceCollection services)
@@ -74,7 +78,7 @@ namespace Dfc.DiscoverSkillsAndCareers.ResultsFunctionApp.Ioc
             Configuration = configBuilder.AddEnvironmentVariables().Build();
 
             services.Configure<CosmosSettings>(Configuration.GetSection("CosmosSettings"));
-            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            services.Configure<SiteFinitySettings>(Configuration.GetSection("AppSettings"));
             services.Configure<AzureSearchSettings>(Configuration.GetSection("AzureSearchSettings"));
         }
     }

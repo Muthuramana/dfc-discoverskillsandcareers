@@ -10,6 +10,7 @@ using Microsoft.Azure.WebJobs.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Dfc.DiscoverSkillsAndCareers.AssessmentFunctionApp.Ioc;
 using Dfc.DiscoverSkillsAndCareers.AssessmentFunctionApp.Services;
 using Microsoft.Azure.Documents.Client;
@@ -22,6 +23,7 @@ using Notify.Client;
 [assembly: WebJobsStartup(typeof(WebJobsExtensionStartup), "Web Jobs Extension Startup")]
 namespace Dfc.DiscoverSkillsAndCareers.AssessmentFunctionApp.Ioc
 {
+    [ExcludeFromCodeCoverage]
     internal class WebJobsExtensionStartup : IWebJobsStartup
     {
         public IConfiguration Configuration { get; private set; }
@@ -54,12 +56,11 @@ namespace Dfc.DiscoverSkillsAndCareers.AssessmentFunctionApp.Ioc
             services.AddSingleton<IHttpResponseMessageHelper, HttpResponseMessageHelper>();
             services.AddSingleton<IJsonHelper, JsonHelper>();
             services.AddSingleton<IUserSessionRepository, UserSessionRepository>();
-            services.AddSingleton<IQuestionRepository, LocalQuestionRepository>();
-            services.AddSingleton<IContentRepository, ContentRepository>();
-            services.AddSingleton<IQuestionSetRepository, LocalQuestionSetRepository>();
-            services.AddSingleton<IJobProfileRepository, JobProfileRepository>();
-            services.AddSingleton<IJobCategoryRepository, LocalJobCategoryRepository>();
-            services.AddSingleton<IShortTraitRepository, LocalShortTraitRepository>();
+            services.AddSingleton<IQuestionRepository, QuestionRepository>();
+            services.AddSingleton<IQuestionSetRepository, QuestionSetRepository>();
+            services.AddSingleton<IJobCategoryRepository, JobCategoryRepository>();
+            services.AddSingleton<IShortTraitRepository, ShortTraitRepository>();
+
             services.AddScoped<ISwaggerDocumentGenerator, SwaggerDocumentGenerator>();
             services.AddTransient<IAssessmentCalculationService, AssessmentCalculationService>();
             services.AddTransient<IFilterAssessmentCalculationService, FilterAssessmentCalculationService>();
@@ -85,7 +86,6 @@ namespace Dfc.DiscoverSkillsAndCareers.AssessmentFunctionApp.Ioc
 
             services.Configure<CosmosSettings>(Configuration.GetSection("CosmosSettings"));
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            services.Configure<AzureSearchSettings>(Configuration.GetSection("AzureSearchSettings"));
         }
     }
 }

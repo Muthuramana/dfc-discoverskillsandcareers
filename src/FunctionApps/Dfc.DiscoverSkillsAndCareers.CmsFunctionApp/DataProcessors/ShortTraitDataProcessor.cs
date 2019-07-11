@@ -1,5 +1,4 @@
-﻿using Dfc.DiscoverSkillsAndCareers.CmsFunctionApp.Services;
-using Dfc.DiscoverSkillsAndCareers.Models;
+﻿using Dfc.DiscoverSkillsAndCareers.Models;
 using Dfc.DiscoverSkillsAndCareers.Repositories;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -26,7 +25,7 @@ namespace Dfc.DiscoverSkillsAndCareers.CmsFunctionApp.DataProcessors
 
             foreach(var traitData in data)
             {
-                if (string.IsNullOrEmpty(traitData.Name))
+                if (string.IsNullOrWhiteSpace(traitData.Name))
                 {
                     continue;
                 }

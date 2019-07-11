@@ -77,12 +77,12 @@ namespace Dfc.DiscoverSkillsAndCareers.ResultsFunctionApp.ResultsApi
                 int traitsTake = (traits.Length > 3 && traits[2].TotalScore == traits[3].TotalScore) ? 4 : 3;
                 var jobFamilies = userSession.ResultData.JobCategories;
 
-                jobCategory = String.IsNullOrWhiteSpace(jobCategory) || jobCategory.ToLower() == "short"
-                    ? userSession.FilteredAssessmentState.CurrentFilterAssessmentCode
-                    : JobCategoryHelper.GetCode(jobCategory);
-                
+                if (!jobCategory.EqualsIgnoreCase("short"))
+                {
+                    jobCategory = JobCategoryHelper.GetCode(jobCategory);
+                }
+
                 var suggestedJobProfiles = new List<JobProfileResult>();
-                var rnd = new Random();
                 foreach (var category in jobFamilies)
                 {
                     if (category.FilterAssessmentResult == null)
@@ -90,18 +90,22 @@ namespace Dfc.DiscoverSkillsAndCareers.ResultsFunctionApp.ResultsApi
                         continue;
                     }
 
-                    if (category.JobCategoryCode.EqualsIgnoreCase(jobCategory) || category.ResultsShown)
+                    var categoryProfiles = new List<JobProfileResult>();
+                    if (category.TotalQuestions == 0)
                     {
                         
                         // Build the list of job profiles
                         var jobProfiles =
                             await jobProfileRepository.JobProfilesForJobFamily(category.JobCategoryName);
-//                            await jobProfileRepository.JobProfilesTitle(category.FilterAssessmentResult
-//                                .SuggestedJobProfiles);
 
-                        foreach (var jobProfile in jobProfiles.OrderBy(_ => rnd.Next(0,jobProfiles.Length)).Take(rnd.Next(2,10)))
+                        var profilesSet = category.FilterAssessmentResult.SuggestedJobProfiles.ToHashSet(StringComparer.InvariantCultureIgnoreCase);
+                        
+                        foreach (var jobProfile in jobProfiles.Where(p => 
+                            (p.JobProfileCategories == null || p.JobProfileCategories.Contains(category.JobCategoryName, StringComparer.InvariantCultureIgnoreCase))
+                            && profilesSet.Contains(p.Title))
+                        )
                         {
-                            suggestedJobProfiles.Add(new JobProfileResult()
+                            categoryProfiles.Add(new JobProfileResult()
                             {
                                 CareerPathAndProgression = jobProfile.CareerPathAndProgression,
                                 Overview = jobProfile.Overview,
@@ -118,9 +122,14 @@ namespace Dfc.DiscoverSkillsAndCareers.ResultsFunctionApp.ResultsApi
                                 WYDDayToDayTasks = jobProfile.WYDDayToDayTasks
                             });
                         }
-                        
-                        category.ResultsShown = true;
                     }
+                    
+                    category.ResultsShown = 
+                        category.ResultsShown 
+                        || category.JobCategoryCode.EqualsIgnoreCase(jobCategory) 
+                        || (category.TotalQuestions == 0 && (categoryProfiles.Count == 0));
+                    
+                    suggestedJobProfiles.AddRange(categoryProfiles);
                 }
 
                 var model = new ResultsResponse()
@@ -141,7 +150,7 @@ namespace Dfc.DiscoverSkillsAndCareers.ResultsFunctionApp.ResultsApi
             }
             catch (Exception ex)
             {
-                log.LogError(ex, "Fatal exception {message}", ex.Message);
+                log.LogError(ex, "Fatal exception {message}", ex.ToString());
                 return new HttpResponseMessage { StatusCode = HttpStatusCode.InternalServerError };
             }
         }

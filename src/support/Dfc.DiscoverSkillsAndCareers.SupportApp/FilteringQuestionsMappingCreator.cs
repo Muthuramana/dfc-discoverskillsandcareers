@@ -5,8 +5,8 @@ using System.Linq;
 using CommandLine;
 using Dfc.DiscoverSkillsAndCareers.CmsFunctionApp;
 using Dfc.DiscoverSkillsAndCareers.CmsFunctionApp.Models;
-using Dfc.DiscoverSkillsAndCareers.CmsFunctionApp.Services;
 using Dfc.DiscoverSkillsAndCareers.Models;
+using Dfc.DiscoverSkillsAndCareers.Repositories;
 using Dfc.DiscoverSkillsAndCareers.SupportApp.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,117 +39,79 @@ namespace Dfc.DiscoverSkillsAndCareers.SupportApp
                 configuration.GetSection("AppSettings").Bind(opts);
                 var sitefinity = services.GetService<ISiteFinityHttpService>();
 
-//                var questionSets =
-//                    sitefinity.GetAll<SiteFinityFilteringQuestionSet>("filteringquestionsets").GetAwaiter().GetResult();
-//
-//                File.WriteAllText(Path.Combine(opts.OutputDirectory, "questionsets.json"), JsonConvert.SerializeObject(questionSets, Formatting.Indented));
-//                
-//                var questionSets = JsonConvert.DeserializeObject<List<SiteFinityFilteringQuestionSet>>(File.ReadAllText(Path.Combine(opts.OutputDirectory, "questionsets.json")));
-
-//                var jobProfiles = 
-//                    sitefinity.GetAll<SiteFinityJobProfile>("jobprofiles?$select=Id,Title,JobProfileCategories&$expand=RelatedSkills&$orderby=Title").GetAwaiter().GetResult();
-//                
-//                File.WriteAllText(Path.Combine(opts.OutputDirectory, "job_profiles.json"), JsonConvert.SerializeObject(jobProfiles, Formatting.Indented));
-
-                var jobProfiles = JsonConvert.DeserializeObject<List<SiteFinityJobProfile>>(File.ReadAllText(Path.Combine(opts.OutputDirectory, "job_profiles.json")));
-
-//                var jobCategories = 
-//                    sitefinity.GetTaxonomyInstances("Job Profile Category").GetAwaiter().GetResult();
-//
-//                File.WriteAllText(Path.Combine(opts.OutputDirectory, "job_categories.json"), JsonConvert.SerializeObject(jobCategories, Formatting.Indented));
-
-                var jobCategories = JsonConvert.DeserializeObject<List<TaxonomyHierarchy>>(File.ReadAllText(Path.Combine(opts.OutputDirectory, "job_categories.json")));
-                
                 var onetQuestionLookup = ReadQuestions(Path.Combine(opts.OutputDirectory, "onet_questions.csv"));
                 
-                var categoryQuestions = JobCategorySkillMapper.Map(jobProfiles, jobCategories,
-                    0.75,
-                    0.75);
+                var workflow = new Workflow();
+                var steps = new List<WorkflowStep>();
+                var questions = new List<string>();
+                
 
-                var onetAttributes =
-                    jobProfiles
-                        .SelectMany(o => o.RelatedSkills.Select(s => new
-                            {ONetAttribute = s.Skill, ONetAttributeType = s.ONetAttributeType}))
-                        .Distinct();
-                       // .Where(s => !onetQuestionLookup.ContainsKey(s.ONetAttribute.ToLower()) && !s.ONetAttributeType.Equals("Knowledge"))
-                       // .Distinct();
+                foreach (var attribute in onetQuestionLookup)
+                {
+                    steps.Add(new WorkflowStep
+                    {
+                        Action = Action.Create,
+                        ContentType = "filteringquestions",
+                        Data = new JObject(new object[]
+                        {
+                            new JProperty("Title", attribute.Key),
+                            new JProperty("QuestionText", attribute.Value),
+                            new JProperty("Description", ""),
+                            new JProperty("IncludeInSitemap", false)
+                        }),
+                        Relates = new[]
+                        {
+                            new Relation
+                            {
+                                RelatedType = new RelationType
+                                {
+                                    ContentType = "skills", Property = "Title",
+                                    Type = "RelatedSkill"
+                                },
+                                Values = new[] {attribute.Key}
+                            },
+                        }
 
-                File.WriteAllText(Path.Combine(opts.OutputDirectory, "extra_onet_attributes.json"), JsonConvert.SerializeObject(onetAttributes));
+                    });
 
-//                var workflow = new Workflow();
-//                var steps = new List<WorkflowStep>();
-//                var questions = new List<string>();
-//                
-//                
-//
-//                foreach (var attribute in onetQuestionLookup)
-//                {
-//                    steps.Add(new WorkflowStep
-//                    {
-//                        Action = Action.Create,
-//                        ContentType = "filteringquestions",
-//                        Data = new JObject(new object[]
-//                        {
-//                            new JProperty("Title", attribute.Key),
-//                            new JProperty("QuestionText", attribute.Value),
-//                            new JProperty("Description", ""),
-//                            new JProperty("IncludeInSitemap", false)
-//                        }),
-//                        Relates = new[]
-//                        {
-//                            new Relation
-//                            {
-//                                RelatedType = new RelationType
-//                                {
-//                                    ContentType = "skills", Property = "Title",
-//                                    Type = "RelatedSkill"
-//                                },
-//                                Values = new[] {attribute.Key}
-//                            },
-//                        }
-//
-//                    });
-//
-//                    questions.Add(attribute.Value);
-//                }
-//                
-//
-//                steps.Add(new WorkflowStep
-//                {
-//                    Action = Action.Create,
-//                    ContentType = "filteringquestionsets",
-//                    Data = new JObject(new []
-//                    {
-//                        new JProperty("Title", "Default"),
-//                        new JProperty("IncludeInSitemap", false)
-//                    }),
-//                    Relates = new []
-//                    {
-//                        new Relation
-//                        {
-//                            RelatedType = new RelationType
-//                            {
-//                                ContentType = "filteringquestions",
-//                                Type = "Questions",
-//                                Property = "QuestionText"
-//                            },
-//                            Values = questions.ToArray()
-//                        }
-//                        
-//                    }
-//                });
-//
-//                workflow.Steps = steps.ToArray();
-//                
-//                File.WriteAllText(Path.Combine(opts.OutputDirectory, "cms-filtering-question.json"), JsonConvert.SerializeObject(workflow, new JsonSerializerSettings
-//                {
-//                    Formatting = Formatting.Indented,
-//                    NullValueHandling = NullValueHandling.Ignore
-//                }));
-//                
-//                SiteFinityWorkflowRunner.RunWorkflow(sitefinity, logger, workflow, opts.OutputDirectory).GetAwaiter().GetResult();
-//                
-//                logger.LogInformation("Done");
+                    questions.Add(attribute.Key);
+                }
+                
+
+                steps.Add(new WorkflowStep
+                {
+                    Action = Action.Create,
+                    ContentType = "filteringquestionsets",
+                    Data = new JObject(new []
+                    {
+                        new JProperty("Title", "Default"),
+                        new JProperty("IncludeInSitemap", false)
+                    }),
+                    Relates = new []
+                    {
+                        new Relation
+                        {
+                            RelatedType = new RelationType
+                            {
+                                ContentType = "filteringquestions",
+                                Type = "Questions",
+                                Property = "Title"
+                            },
+                            Values = questions.ToArray()
+                        }
+                        
+                    }
+                });
+
+                workflow.Steps = steps.ToArray();
+                
+                File.WriteAllText(Path.Combine(opts.OutputDirectory, "cms-filtering-question.json"), JsonConvert.SerializeObject(workflow, new JsonSerializerSettings
+                {
+                    Formatting = Formatting.Indented,
+                    NullValueHandling = NullValueHandling.Ignore
+                }));
+                
+                logger.LogInformation("Done");
                 
                 
                 return SuccessFailCode.Succeed;
