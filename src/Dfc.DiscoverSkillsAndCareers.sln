@@ -44,8 +44,6 @@ EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AD5721E0-7E1E-40AC-95F9-3CC36B4B08AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfc.DiscoverSkillsAndCareers.AcceptanceTests", "Dfc.AcceptanceTests\Dfc.DiscoverSkillsAndCareers.AcceptanceTests.csproj", "{8558DF61-BA02-4A71-823F-BFA96538A09B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
