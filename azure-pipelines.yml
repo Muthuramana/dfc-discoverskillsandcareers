@@ -85,7 +85,7 @@ jobs:
       SonarCloud: '$(SonarCloud)'
       organization: 'muthuramana-github'
       scannerMode: MSBuild
-      projectKey: ''
+      projectKey: '$(SonarCloudProjectKey)'
       projectName: 'mk-dfc-discoverskillsandcareers'
 
   - task: DotNetCoreCLI@2
