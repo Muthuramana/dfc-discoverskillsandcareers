@@ -35,8 +35,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dfc.DiscoverSkillsAndCareer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dfc.DiscoverSkillsAndCareers.ChangeFeed.Data", "changefeed\Dfc.DiscoverSkillsAndCareers.ChangeFeed.Data\Dfc.DiscoverSkillsAndCareers.ChangeFeed.Data.csproj", "{0E13291C-FFDF-4978-AB0B-E6ED795E927C}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Dfc.DiscoverSkillsAndCareers.ChangedFeed.Db", "changefeed\Dfc.DiscoverSkillsAndCareers.ChangedFeed.Db\Dfc.DiscoverSkillsAndCareers.ChangedFeed.Db.sqlproj", "{39868781-DB54-4D73-85A1-DDA9DDD9BD0E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{3604EFC5-3E6A-47C4-945A-0A27E6962CD5}"
 ProjectSection(SolutionItems) = preProject
 	..\azure-pipelines.yml = ..\azure-pipelines.yml
@@ -102,12 +100,6 @@ Global
 		{0E13291C-FFDF-4978-AB0B-E6ED795E927C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E13291C-FFDF-4978-AB0B-E6ED795E927C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E13291C-FFDF-4978-AB0B-E6ED795E927C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39868781-DB54-4D73-85A1-DDA9DDD9BD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39868781-DB54-4D73-85A1-DDA9DDD9BD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39868781-DB54-4D73-85A1-DDA9DDD9BD0E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{39868781-DB54-4D73-85A1-DDA9DDD9BD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39868781-DB54-4D73-85A1-DDA9DDD9BD0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39868781-DB54-4D73-85A1-DDA9DDD9BD0E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,7 +114,6 @@ Global
 		{17FB465A-94F0-468B-9A2F-ED03150F41EA} = {FE9FE7D3-93B2-4978-A2DA-B2984A1392DB}
 		{EC12C42C-5AFC-453C-8BC1-48B7B89E7895} = {FE9FE7D3-93B2-4978-A2DA-B2984A1392DB}
 		{0E13291C-FFDF-4978-AB0B-E6ED795E927C} = {FE9FE7D3-93B2-4978-A2DA-B2984A1392DB}
-		{39868781-DB54-4D73-85A1-DDA9DDD9BD0E} = {FE9FE7D3-93B2-4978-A2DA-B2984A1392DB}
 		{6DA3D039-38F6-44E2-9C41-3072A00108D6} = {AD5721E0-7E1E-40AC-95F9-3CC36B4B08AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
